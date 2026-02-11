@@ -5,11 +5,20 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
 
-// Lazy load pages for performance
-const Home = React.lazy(() => import('./pages/Home'));
-const Products = React.lazy(() => import('./pages/Products'));
-const About = React.lazy(() => import('./pages/About'));
-const Contact = React.lazy(() => import('./pages/Contact'));
+// Helper to enforce minimum loading time
+const minLoad = (importFunc: () => Promise<any>, minDurationMs = 2000) => {
+  return Promise.all([
+    importFunc(),
+    new Promise(resolve => setTimeout(resolve, minDurationMs))
+  ]).then(([moduleExports]) => moduleExports);
+};
+
+// Lazy load pages for performance with minimum display time
+const Home = React.lazy(() => minLoad(() => import('./pages/Home')));
+const Products = React.lazy(() => minLoad(() => import('./pages/Products')));
+const About = React.lazy(() => minLoad(() => import('./pages/About')));
+const Contact = React.lazy(() => minLoad(() => import('./pages/Contact')));
+const CustomersHappiness = React.lazy(() => minLoad(() => import('./pages/CustomersHappiness')));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -47,37 +56,45 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route 
-          path="/" 
+        <Route
+          path="/"
           element={
             <PageTransition>
               <Home />
             </PageTransition>
-          } 
+          }
         />
-        <Route 
-          path="/products" 
+        <Route
+          path="/products"
           element={
             <PageTransition>
               <Products />
             </PageTransition>
-          } 
+          }
         />
-        <Route 
-          path="/about" 
+        <Route
+          path="/about"
           element={
             <PageTransition>
               <About />
             </PageTransition>
-          } 
+          }
         />
-        <Route 
-          path="/contact" 
+        <Route
+          path="/contact"
           element={
             <PageTransition>
               <Contact />
             </PageTransition>
-          } 
+          }
+        />
+        <Route
+          path="/happy-customers"
+          element={
+            <PageTransition>
+              <CustomersHappiness />
+            </PageTransition>
+          }
         />
       </Routes>
     </AnimatePresence>

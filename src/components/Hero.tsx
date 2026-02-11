@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import heroVideo from './Premium Rice Hero Section.mp4'
 
 // Floating grain particles component
 const FloatingGrains = () => {
@@ -63,17 +64,20 @@ const Hero = () => {
       <FloatingGrains />
 
       {/* Background Image with Parallax */}
-      <motion.div 
+      <motion.div
         style={{ y: y1, scale }}
         className="absolute inset-0 w-full h-full"
       >
-        <img 
-          src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2000&auto=format&fit=crop"
-          alt="Green Rice Fields"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-90"
-          loading="eager"
-          fetchPriority="high"
-        />
+          poster="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2000&auto=format&fit=crop"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-stone-900/40 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-transparent to-stone-900/50" />
       </motion.div>
@@ -92,17 +96,17 @@ const Hero = () => {
       />
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         className="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-6 max-w-5xl mx-auto text-white z-10"
       >
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
         >
-          <motion.div 
+          <motion.div
             className="h-[1px] w-8 md:w-12 bg-gold-500"
             initial={{ width: 0 }}
             animate={{ width: '3rem' }}
@@ -111,15 +115,15 @@ const Hero = () => {
           <span className="text-gold-500 tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm font-bold uppercase whitespace-nowrap">
             Est. 1985 • Premium Exports
           </span>
-          <motion.div 
+          <motion.div
             className="h-[1px] w-8 md:w-12 bg-gold-500"
             initial={{ width: 0 }}
             animate={{ width: '3rem' }}
             transition={{ duration: 0.8, delay: 0.5 }}
           />
         </motion.div>
-        
-        <motion.h1 
+
+        <motion.h1
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -130,8 +134,8 @@ const Hero = () => {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: 0.4 + index * 0.05,
                 ease: [0.25, 0.1, 0.25, 1]
               }}
@@ -142,7 +146,7 @@ const Hero = () => {
           ))}
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -161,7 +165,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link 
+            <Link
               to="/products"
               className="block px-8 py-4 bg-white text-stone-900 w-full md:w-auto min-w-[200px] font-medium tracking-widest uppercase hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-lg hover:shadow-gold-500/20 text-sm md:text-base border border-transparent relative overflow-hidden group"
             >
@@ -178,7 +182,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link 
+            <Link
               to="/contact"
               className="block px-8 py-4 border border-white text-white w-full md:w-auto min-w-[200px] font-medium tracking-widest uppercase hover:bg-white hover:text-stone-900 transition-all duration-300 backdrop-blur-sm text-sm md:text-base"
             >
@@ -189,7 +193,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
