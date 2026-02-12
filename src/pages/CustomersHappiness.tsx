@@ -132,7 +132,7 @@ const CustomersHappiness = () => {
           >
             Customers Happiness
           </motion.h1>
-          <div className="mx-auto mb-5 h-px w-44 bg-gradient-to-r from-red-600 via-green-700 to-blue-600 opacity-70" />
+          <div className="mx-auto mb-5 h-px w-44 bg-gradient-to-r from-red-600 via-[#005e2a] to-blue-600 opacity-70" />
           <motion.p
             className="text-base md:text-xl text-stone-700 font-light max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -187,7 +187,7 @@ const CustomersHappiness = () => {
                     “Satisfaction is when quality remains the same—today, tomorrow, and every time you
                     open the bag.”
                   </p>
-                  <div className="mt-6 h-px w-full bg-gradient-to-r from-red-600/20 via-green-700/20 to-blue-600/20" />
+                  <div className="mt-6 h-px w-full bg-gradient-to-r from-red-600/20 via-[#005e2a]/20 to-blue-600/20" />
                   <p className="mt-4 text-xs uppercase tracking-widest text-stone-500 font-bold">
                     Tirupati Customer Promise
                   </p>
@@ -282,7 +282,7 @@ const CustomersHappiness = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-red-600/15 via-green-700/15 to-blue-600/15" />
+                <div className="mt-4 h-px w-full bg-gradient-to-r from-red-600/15 via-[#005e2a]/15 to-blue-600/15" />
                 <p className="mt-4 text-stone-700 font-light leading-relaxed italic">“{t.quote}”</p>
               </motion.div>
             ))}

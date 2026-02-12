@@ -14,7 +14,7 @@ const StatItem: React.FC<StatItemProps> = ({ icon, value, label, delay }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const [displayValue, setDisplayValue] = useState('0');
-  
+
   // Parse numeric value and suffix
   const numericMatch = value.match(/^([0-9]+)/);
   const numericValue = numericMatch ? parseInt(numericMatch[1], 10) : 0;
@@ -24,28 +24,28 @@ const StatItem: React.FC<StatItemProps> = ({ icon, value, label, delay }) => {
     if (isInView) {
       const duration = 2000; // 2 seconds
       const startTime = Date.now();
-      
+
       const animate = () => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // Ease out quart
         const easeOut = 1 - Math.pow(1 - progress, 4);
         const current = Math.floor(easeOut * numericValue);
-        
+
         setDisplayValue(current + suffix);
-        
+
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
           setDisplayValue(value);
         }
       };
-      
+
       const timer = setTimeout(() => {
         requestAnimationFrame(animate);
       }, delay * 1000);
-      
+
       return () => clearTimeout(timer);
     }
   }, [isInView, numericValue, suffix, value, delay]);
@@ -58,8 +58,8 @@ const StatItem: React.FC<StatItemProps> = ({ icon, value, label, delay }) => {
       transition={{ duration: 0.6, delay }}
       className="flex flex-col items-center space-y-2 md:space-y-4 group"
     >
-      <motion.div 
-        className="bg-stone-800 p-3 md:p-4 rounded-full mb-2 relative"
+      <motion.div
+        className="bg-stone-100 p-3 md:p-4 rounded-full mb-2 relative"
         whileHover={{ scale: 1.1, rotate: 5 }}
         transition={{ type: 'spring', stiffness: 400, damping: 10 }}
       >
@@ -84,16 +84,16 @@ const StatItem: React.FC<StatItemProps> = ({ icon, value, label, delay }) => {
           }}
         />
       </motion.div>
-      <motion.div 
-        className="text-3xl md:text-5xl font-serif font-bold text-white"
+      <motion.div
+        className="text-3xl md:text-5xl font-serif font-bold text-stone-900"
         initial={{ scale: 0.5 }}
         animate={isInView ? { scale: 1 } : {}}
         transition={{ duration: 0.5, delay: delay + 0.1, type: 'spring', stiffness: 200 }}
       >
         {displayValue}
       </motion.div>
-      <motion.div 
-        className="text-stone-400 uppercase tracking-widest text-[10px] md:text-xs font-medium"
+      <motion.div
+        className="text-stone-600 uppercase tracking-widest text-[10px] md:text-xs font-medium"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: delay + 0.3 }}
@@ -132,9 +132,9 @@ const Stats = () => {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="py-12 md:py-20 bg-stone-900 text-white border-y border-stone-800 relative overflow-hidden"
+      className="py-12 md:py-20 bg-white text-stone-900 border-y border-stone-200 relative overflow-hidden"
     >
       {/* Animated background gradient */}
       <motion.div
@@ -148,7 +148,7 @@ const Stats = () => {
           ease: 'linear',
         }}
       />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
           {stats.map((stat, index) => (

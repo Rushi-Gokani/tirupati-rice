@@ -31,7 +31,7 @@ const Features = () => {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-rice-50 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-[#005e2a] relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div
         className="absolute -top-20 -left-20 w-64 h-64 bg-gold-500/5 rounded-full blur-3xl"
@@ -51,29 +51,29 @@ const Features = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="text-gold-600 tracking-widest uppercase text-xs font-bold mb-3 block"
+            className="text-gold-500 tracking-widest uppercase text-xs font-bold mb-3 block"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Our Promise
           </motion.span>
-          <motion.h2 
-            className="text-3xl md:text-4xl font-serif text-stone-900 mb-4"
+          <motion.h2
+            className="text-3xl md:text-4xl font-serif text-white mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Why Choose Tirupati
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="w-20 h-1 bg-gold-500 mx-auto"
             initial={{ width: 0 }}
             animate={isInView ? { width: 80 } : {}}
@@ -90,13 +90,13 @@ const Features = () => {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex flex-col items-center text-center group p-4 md:p-0"
             >
-              <motion.div 
-                className="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center text-stone-700 mb-6 group-hover:bg-stone-600 group-hover:text-white transition-colors duration-300 shadow-sm border border-stone-200 relative"
+              <motion.div
+                className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-[#005e2a] transition-colors duration-300 shadow-sm border border-white/20 relative"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 {feature.icon}
-                
+
                 {/* Pulse ring on hover */}
                 <motion.div
                   className="absolute inset-0 rounded-full border-2 border-gold-500/0 group-hover:border-gold-500/30"
@@ -108,17 +108,17 @@ const Features = () => {
                   transition={{ duration: 1, repeat: Infinity }}
                 />
               </motion.div>
-              
-              <motion.h3 
-                className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors duration-300"
+
+              <motion.h3
+                className="text-xl font-serif font-bold text-white mb-3 group-hover:text-gold-500 transition-colors duration-300"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               >
                 {feature.title}
               </motion.h3>
-              <motion.p 
-                className="text-stone-600 leading-relaxed text-sm md:text-base"
+              <motion.p
+                className="text-white/80 leading-relaxed text-sm md:text-base"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
