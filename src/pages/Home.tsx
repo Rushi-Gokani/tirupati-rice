@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import SignatureCollection from '../components/SignatureCollection';
 import Features from '../components/Features';
+import ProductCategories from '../components/ProductCategories';
 import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
 import FloatingGrains from '../components/ui/FloatingGrains';
@@ -42,6 +43,10 @@ const Home = () => {
 
         <SectionWrapper>
           <SignatureCollection />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <ProductCategories />
         </SectionWrapper>
 
         <SectionWrapper>

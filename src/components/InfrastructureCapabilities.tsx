@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Droplets, Settings, Award, Shield, Users, CheckCircle2 } from 'lucide-react';
+import { Droplets, Settings, Award, Shield, Users, CheckCircle2, Factory, Cpu } from 'lucide-react';
 
 import infrastructureImage from '../Infrastructure/9.jpg';
 import img12 from '../Infrastructure/12 (1).jpg';
@@ -140,6 +140,8 @@ const InfrastructureCapabilities = () => {
                 </div>
             </div>
 
+
+
             {/* 5Ps Mantra Section */}
             <div className="bg-white text-stone-900 pt-0 pb-24 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -170,6 +172,100 @@ const InfrastructureCapabilities = () => {
                                 </p>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+            </div>
+            {/* Company Profile Section */}
+            {/* Company Profile Section */}
+            {/* Company Profile Section */}
+            <div className="bg-stone-50 py-12 md:py-24 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+                        {/* Left Side Section Title */}
+                        <div className="lg:w-1/4 pt-4">
+                            <div className="static lg:sticky lg:top-24">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#005e2a]/20 font-bold leading-none select-none">
+                                    Company <br />
+                                    <span className="text-[#005e2a] opacity-100">Profile</span>
+                                </h2>
+                                <div className="h-2 w-20 bg-[#005e2a] mt-4 mb-8 lg:mt-6 lg:mb-6" />
+                            </div>
+                        </div>
+
+                        {/* Right Side Content */}
+                        <div className="lg:w-3/4 space-y-8 md:space-y-12">
+                            {/* Header */}
+                            <div className="border-b border-[#005e2a]/20 pb-6 md:pb-8">
+                                <h3 className="text-2xl md:text-3xl lg:text-5xl font-serif text-[#005e2a] mb-2 leading-tight">
+                                    Tirupati Basmati Exports Pvt. Ltd.
+                                </h3>
+                                <p className="text-lg md:text-xl lg:text-2xl font-light text-[#005e2a]/80 italic">
+                                    Small beginnings to Global Presence
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 text-base md:text-lg text-stone-700 leading-relaxed text-justify">
+                                <div className="space-y-4 md:space-y-6">
+                                    <p>
+                                        Formerly <span className="font-semibold text-[#005e2a]">'Tejinder Kumar & Brother's Rice Mills (Quality Maker)</span> become "Tirupati Basmati Exports Pvt. Ltd" under the initiative of its founder Chairman, <span className="font-semibold text-[#005e2a]">Sh. Nathi Ram Gupta</span>. Making his foray into the business in 1985, there was no looking back for him. He knew what it takes best to churn out the most of benefit from the production & export of Basmati rice cultivated in the foothills of Himalaya.
+                                    </p>
+                                    <p>
+                                        It is his knowledge and expertise about the geography and quality of the Basmati of Himalayan region, that Tirupati Basmati Exports Pvt. Ltd. has emerged as one of the leading rice exporters of the world. We are committed to provide the best quality through hygienic processing of the paddy to make rice, thus to make way for the fragrance of the field to the kitchens of millions.
+                                    </p>
+                                </div>
+                                <div className="space-y-4 md:space-y-6">
+                                    <p>
+                                        Our motto is to upgrade our processing unit to offer our customers quality rice. Our continuous efforts to achieve highest standard of quality has helped us to attain <span className="font-semibold text-[#005e2a]">ISO 9001 and HACCP Certification</span>.
+                                    </p>
+                                    <p>
+                                        We supply and export our products under the brand name <span className="font-semibold text-[#005e2a]">Tirupati, Pappu, Mannat and T-One</span>. Some of the international brands like Mojdeh, Afrah, Khatareth, Dolphin, Royal-Kamal, Al-Khaya and many more are directly packed by us and exported in world market.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Visual Strip */}
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                                <div className="aspect-square rounded-lg overflow-hidden relative group shadow-md hover:shadow-xl transition-all">
+                                    <img src={infrastructureImage} alt="Rice Field" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-[#005e2a]/10 group-hover:bg-transparent transition-colors" />
+                                </div>
+                                <div className="aspect-square rounded-lg overflow-hidden relative group shadow-md hover:shadow-xl transition-all">
+                                    <img src={img12} alt="Farming" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-[#005e2a]/10 group-hover:bg-transparent transition-colors" />
+                                </div>
+                                <div className="aspect-square rounded-lg overflow-hidden relative group shadow-md hover:shadow-xl transition-all">
+                                    <img src={img13} alt="Silos" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-[#005e2a]/10 group-hover:bg-transparent transition-colors" />
+                                </div>
+                                <div className="aspect-square rounded-lg overflow-hidden relative group shadow-md hover:shadow-xl transition-all">
+                                    <img src={img14} alt="Quality Rice" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-[#005e2a]/10 group-hover:bg-transparent transition-colors" />
+                                </div>
+                            </div>
+
+                            {/* Brand Come-Up Section */}
+                            <div className="bg-white p-6 md:p-12 rounded-2xl shadow-sm border border-stone-100">
+                                <h4 className="text-2xl md:text-3xl font-serif text-[#005e2a] mb-4 md:mb-6 border-l-4 border-[#005e2a] pl-4">
+                                    Come-up of Brand TIRUPATI
+                                </h4>
+                                <div className="text-base md:text-lg text-stone-700 leading-relaxed text-justify space-y-4">
+                                    <p>
+                                        The introduction of Tirupati in 1995 revolutionized the market of rice. Its supreme quality and taste took over the competition and created a place for itself which every other competitor had been craving for.
+                                    </p>
+                                    <p>
+                                        Within five years, in 2000 the company experienced a meteoric rise in its sales. The diverse range starting from brown rice, white rice, steamed rice to Parboiled white & golden rice started getting exported to Saudi-Arabia, Bahrain, U.A.E., Iran, Yemen, Dubai & Middle East companies.
+                                    </p>
+                                    <div className="mt-6 md:mt-8 pt-6 border-t border-stone-100 text-sm md:text-base">
+                                        <p className="font-semibold text-[#005e2a]">
+                                            Production Capacity: <span className="text-stone-600 font-normal">Backed with 3 milling plants spread across 10 hectares.</span>
+                                        </p>
+                                        <p className="font-semibold text-[#005e2a] mt-2">
+                                            Technology: <span className="text-stone-600 font-normal">Buhler Technology & Computerized PLC System used for optimization.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

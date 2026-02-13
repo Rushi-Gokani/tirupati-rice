@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 import Logo from '../Logo/Logo.png';
@@ -8,11 +8,12 @@ import Logo from '../Logo/Logo.png';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -27,9 +28,14 @@ const Navbar = () => {
     }
   }, [isMobileMenuOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Our Brands', path: '/products' },
+    { name: 'Our Products', path: '/products' },
     { name: 'Heritage', path: '/about' },
     { name: 'Happy Customers', path: '/happy-customers' },
     { name: 'Contact', path: '/contact' },
@@ -37,169 +43,214 @@ const Navbar = () => {
 
   const isHome = location.pathname === '/';
 
-  // Determine navbar text color based on state
-  const isDarkText = isScrolled || !isHome || isMobileMenuOpen;
+  // Visual state helpers
+  const isFloating = isScrolled;
+  const isDarkText = isScrolled || !isHome;
+
+  // Variants for the navbar container animation
+  const navVariants = {
+    top: {
+      width: "100%",
+      y: 0,
+      borderRadius: 0,
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      backdropFilter: "blur(0px)",
+      borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+      paddingTop: "1rem",
+      paddingBottom: "1rem",
+    },
+    scrolled: {
+      width: "92%",
+      y: 10,
+      borderRadius: "9999px",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
+      backdropFilter: "blur(12px)",
+      borderBottom: "1px solid rgba(255, 255, 255, 0)",
+      paddingTop: "0.75rem",
+      paddingBottom: "0.75rem",
+      boxShadow: "0 10px 40px -10px rgba(0,0,0,0.1)",
+    }
+  };
 
   return (
     <>
-      <nav
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-6 py-4',
-          isScrolled || !isHome ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent text-white'
-        )}
-      >
-        {/* Traditional tricolor accent line (subtle) */}
-        <div
-          aria-hidden="true"
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 pointer-events-none">
+        <motion.nav
+          initial="top"
+          animate={isFloating ? "scrolled" : !isHome ? "scrolled" : "top"}
+          variants={navVariants}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
-            'pointer-events-none absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-500',
-            (isScrolled || !isHome) && 'opacity-90'
+            "pointer-events-auto flex items-center justify-between px-6 md:px-8 max-w-7xl mx-auto"
           )}
         >
-          <div className="h-full w-full bg-gradient-to-r from-red-600 via-[#005e2a] to-blue-600" />
-        </div>
-
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link
-            to="/"
-            className="z-50"
-          >
-            <img
-              src={Logo}
-              alt="Tirupati Rice"
-              className={cn(
-                "h-20 w-auto object-contain transition-all duration-300",
-                isMobileMenuOpen && "brightness-0 invert"
-              )}
-            />
+          {/* Logo Section */}
+          <Link to="/" className="flex-shrink-0 z-50 relative">
+            <motion.div
+              layout
+              className="relative"
+            >
+              <img
+                src={Logo}
+                alt="Tirupati Rice"
+                className={cn(
+                  "h-10 md:h-12 w-auto object-contain transition-all duration-300",
+                )}
+              />
+            </motion.div>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-10">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
+                onMouseEnter={() => setHoveredLink(link.name)}
+                onMouseLeave={() => setHoveredLink(null)}
                 className={cn(
-                  "text-sm font-medium tracking-widest uppercase transition-colors relative group",
-                  isScrolled || !isHome ? "text-stone-800 hover:text-red-700" : "text-white/90 hover:text-white"
+                  "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
+                  isDarkText ? "text-stone-800" : "text-white"
                 )}
               >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 via-[#005e2a] to-blue-600 transition-all duration-300 group-hover:w-full" />
+                <span className="relative z-10">{link.name}</span>
+                {hoveredLink === link.name && (
+                  <motion.div
+                    layoutId="nav-pill"
+                    className={cn(
+                      "absolute inset-0 rounded-full -z-0",
+                      isDarkText ? "bg-stone-200/50" : "bg-white/20"
+                    )}
+                    transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                  />
+                )}
               </Link>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 z-50 focus:outline-none"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <div className="relative w-6 h-6">
-              <AnimatePresence mode='wait'>
-                {isMobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ opacity: 0, rotate: -90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: 90 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="text-white w-6 h-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ opacity: 0, rotate: 90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: -90 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className={cn("w-6 h-6", isScrolled || !isHome ? "text-stone-900" : "text-white")} />
-                  </motion.div>
+          {/* Action / Mobile Toggle */}
+          <div className="flex items-center space-x-4">
+            {/* CTA Button - Desktop */}
+            <div className="hidden md:block">
+              <Link
+                to="/contact"
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md",
+                  isDarkText
+                    ? "bg-[#005e2a] text-white hover:bg-[#004b21] shadow-[#005e2a]/20"
+                    : "bg-white text-[#005e2a] hover:bg-zinc-100 shadow-black/10"
                 )}
-              </AnimatePresence>
+              >
+                Inquire Now
+              </Link>
             </div>
-          </button>
-        </div>
-      </nav>
 
-      {/* Modern Mobile Menu Overlay */}
+            {/* Mobile Menu Toggle */}
+            <button
+              className="md:hidden p-1 z-50 focus:outline-none"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <div className={cn(
+                "p-2 rounded-full transition-colors",
+                isDarkText ? "bg-stone-100/50 text-stone-900" : "bg-white/10 text-white"
+              )}>
+                <AnimatePresence mode='wait'>
+                  {isMobileMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X size={20} />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu size={20} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </button>
+          </div>
+        </motion.nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 flex flex-col pt-24 px-6 md:hidden bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden flex flex-col pt-32 px-6"
           >
-            {/* Decorative Background Element */}
-            <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none bg-red-500/10" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none bg-blue-500/10" />
-            <div className="absolute top-1/2 left-1/2 w-80 h-80 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none bg-[#005e2a]/10" />
+            {/* Gradient Orbs for background ambience */}
+            <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-[#005e2a]/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="flex flex-col h-full justify-between pb-10">
-              <motion.div
-                className="flex flex-col space-y-6 mt-8"
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.1 } },
-                  hidden: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
-                }}
-              >
-                {navLinks.map((link) => (
-                  <motion.div
-                    key={link.name}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
+            <nav className="flex flex-col space-y-6">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05, type: 'spring', stiffness: 100 }}
+                >
+                  <Link
+                    to={link.path}
+                    className="group flex items-center justify-between text-2xl font-serif text-stone-800 py-3 border-b border-stone-100"
                   >
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group flex items-center justify-between text-3xl font-serif text-white/90 hover:text-white transition-colors border-b border-white/10 pb-4"
-                    >
-                      <span className="relative">
-                        {link.name}
-                        <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-red-500 via-[#005e2a] to-blue-500 transition-all duration-300 group-hover:w-full" />
-                      </span>
-                      <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-white" />
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
+                    <span className="group-hover:text-[#005e2a] transition-colors duration-300">
+                      {link.name}
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-[#005e2a] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="space-y-6"
-              >
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-widest font-bold bg-gradient-to-r from-red-400 via-[#005e2a] to-blue-400 bg-clip-text text-transparent">
-                    Get in Touch
-                  </p>
-                  <p className="text-white/80 text-lg font-serif">info@tirupati-rice.com</p>
-                  <p className="text-white/80 text-lg font-serif">+1 (555) 123-4567</p>
-                </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-auto mb-12 space-y-8"
+            >
+              <div className="p-6 bg-stone-50 rounded-2xl border border-stone-100">
+                <h4 className="text-sm font-bold text-[#005e2a] uppercase tracking-wider mb-2">Contact Us</h4>
+                <p className="text-stone-600">info@tirupati-rice.com</p>
+                <p className="text-stone-600">+91 123 456 7890</p>
+              </div>
 
-                <div className="flex space-x-6 pt-4 border-t border-white/10">
-                  <a href="#" className="text-white/60 hover:text-red-300 transition-colors"><Instagram size={24} /></a>
-                  <a href="#" className="text-white/60 hover:text-[#005e2a] transition-colors"><Facebook size={24} /></a>
-                  <a href="#" className="text-white/60 hover:text-blue-300 transition-colors"><Twitter size={24} /></a>
-                </div>
-              </motion.div>
-            </div>
+              <div className="flex justify-center space-x-8">
+                <SocialIcon icon={Instagram} href="#" color="text-pink-600" />
+                <SocialIcon icon={Facebook} href="#" color="text-blue-600" />
+                <SocialIcon icon={Twitter} href="#" color="text-sky-500" />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
   );
 };
+
+// Helper component for social icons
+const SocialIcon = ({ icon: Icon, href, color }: { icon: any, href: string, color: string }) => (
+  <a
+    href={href}
+    className={`p-3 rounded-full bg-stone-100 hover:bg-white hover:shadow-lg transition-all duration-300 ${color}`}
+  >
+    <Icon size={24} />
+  </a>
+);
 
 export default Navbar;

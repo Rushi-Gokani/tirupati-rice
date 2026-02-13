@@ -90,7 +90,7 @@ const GlobalReach = () => {
       </div>
 
       {/* Process Flow - Part of Global Presence */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 pb-12 sm:pb-16 md:pb-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="relative">
           {/* Horizontal connecting line through all icons (desktop only) */}
           <div className="absolute top-[18px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent hidden md:block z-0" />
