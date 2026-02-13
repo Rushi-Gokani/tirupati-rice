@@ -13,6 +13,7 @@ const BrandVideo = React.lazy(() => import('../components/BrandVideo'));
 const GlobalReach = React.lazy(() => import('../components/GlobalReach'));
 
 import InfrastructureCapabilities from '../components/InfrastructureCapabilities';
+import RiceFactory from '../components/RiceFactory';
 
 
 
@@ -51,6 +52,10 @@ const Home = () => {
 
         <SectionWrapper>
           <InfrastructureCapabilities />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <RiceFactory />
         </SectionWrapper>
 
 
