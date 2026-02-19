@@ -1,7 +1,4 @@
-import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import heroVideo from './Premium Rice Hero Section.mp4'
 
 // Floating grain particles component
@@ -73,13 +70,12 @@ const Hero = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-90"
+          className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2000&auto=format&fit=crop"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-stone-900/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-transparent to-stone-900/50" />
+
       </motion.div>
 
       {/* Animated gradient overlay */}
@@ -100,118 +96,63 @@ const Hero = () => {
         style={{ opacity }}
         className="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-6 max-w-5xl mx-auto text-white z-10"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
-        >
-          <motion.div
-            className="h-[1px] w-8 md:w-12 bg-gold-500"
-            initial={{ width: 0 }}
-            animate={{ width: '3rem' }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          />
-          <span className="text-gold-500 tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm font-bold uppercase whitespace-nowrap">
-            Est. 1985 • Premium Exports
-          </span>
-          <motion.div
-            className="h-[1px] w-8 md:w-12 bg-gold-500"
-            initial={{ width: 0 }}
-            animate={{ width: '3rem' }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          />
-        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-8xl lg:text-9xl font-serif font-bold mb-6 md:mb-8 leading-tight md:leading-none tracking-tight drop-shadow-xl text-rice-50"
-        >
-          {'TIRUPATI'.split('').map((letter, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.4 + index * 0.05,
-                ease: [0.25, 0.1, 0.25, 1]
-              }}
-              className="inline-block"
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base md:text-2xl text-rice-100 max-w-xs md:max-w-3xl mb-8 md:mb-12 font-light leading-relaxed font-serif italic drop-shadow-md"
-        >
-          "The soul of the harvest, delivered to the world."
-        </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-auto px-6 md:px-0"
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/products"
-              className="block px-8 py-4 bg-white text-stone-900 w-full md:w-auto min-w-[200px] font-medium tracking-widest uppercase hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-lg hover:shadow-gold-500/20 text-sm md:text-base border border-transparent relative overflow-hidden group"
-            >
-              <span className="relative z-10">Discover Brands</span>
-              <motion.div
-                className="absolute inset-0 bg-gold-500"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/contact"
-              className="block px-8 py-4 border border-white text-white w-full md:w-auto min-w-[200px] font-medium tracking-widest uppercase hover:bg-white hover:text-stone-900 transition-all duration-300 backdrop-blur-sm text-sm md:text-base"
-            >
-              Export Inquiry
-            </Link>
-          </motion.div>
-        </motion.div>
+
+
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Hero Features / Key Highlights */}
       <motion.div
-        style={{ opacity }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-white/70 z-10"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-b from-[#005e2a]/0 via-[#005e2a]/70 to-[#005e2a] pb-10 pt-16 px-4"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown size={28} className="md:w-8 md:h-8" />
-        </motion.div>
-      </motion.div>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-around items-center gap-8 md:gap-4">
+          {[
+            {
+              title: "Premium Quality",
+              subtitle: "Basmati Rice",
+              img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=300&auto=format&fit=crop"
+            },
+            {
+              title: "Largest Exporters",
+              subtitle: "from India",
+              img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=300&auto=format&fit=crop"
+            },
+            {
+              title: "State of Art",
+              subtitle: "Infrastructure",
+              img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300&auto=format&fit=crop"
+            }
+          ].map((item, index) => (
+            <div key={index} className="flex items-center gap-5 w-full md:w-auto">
+              {/* Animated Circle Container */}
+              <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                {/* Rotating Dashed Border */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-white/40"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent z-0" />
+                {/* Inner Image */}
+                <div className="absolute inset-1.5 rounded-full overflow-hidden border border-white/10 bg-stone-800">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="flex flex-col">
+                <h3 className="text-white font-serif text-lg md:text-xl leading-tight tracking-wide">{item.title}</h3>
+                <p className="text-white/60 text-sm md:text-base font-light tracking-wider">{item.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
