@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
-import Logo from '../Logo/Logo.png';
 
 const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -35,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer ref={footerRef} className="bg-[#005e2a] text-white/80 pt-20 pb-10 relative overflow-hidden">
+    <footer ref={footerRef} className="bg-stone-900 text-stone-300 pt-20 pb-10 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         className="absolute top-0 left-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"
@@ -56,20 +55,22 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
         {/* Brand Column */}
-        <motion.div
+        <motion.div 
           className="space-y-6"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/" className="inline-block mb-4">
-            <img
-              src={Logo}
-              alt="Tirupati Rice"
-              className="h-24 w-auto object-contain"
-            />
+          <Link to="/" className="text-3xl font-serif font-bold text-white tracking-widest uppercase inline-block group">
+            <motion.span
+              whileHover={{ letterSpacing: '0.15em' }}
+              transition={{ duration: 0.3 }}
+            >
+              Tirupati
+            </motion.span>
+            <span className="text-gold-500 group-hover:text-gold-400 transition-colors">.</span>
           </Link>
-          <p className="text-white/60 leading-relaxed text-sm">
+          <p className="text-stone-400 leading-relaxed text-sm">
             Delivering the essence of purity since 1985. We are dedicated to bringing the world's finest grains to your kitchen, preserving tradition in every package.
           </p>
           <div className="flex space-x-4">
@@ -77,7 +78,7 @@ const Footer = () => {
               <motion.a
                 key={social.label}
                 href={social.href}
-                className="text-white/60 hover:text-gold-500 transition-colors relative"
+                className="text-stone-400 hover:text-gold-500 transition-colors relative"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
@@ -102,20 +103,20 @@ const Footer = () => {
             <h4 className="text-white font-serif text-lg mb-6">{column.title}</h4>
             <ul className="space-y-3 text-sm">
               {column.links.map((link, linkIndex) => (
-                <motion.li
+                <motion.li 
                   key={link.name}
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.2 + colIndex * 0.1 + linkIndex * 0.05 }}
                 >
-                  <Link
-                    to={link.path}
-                    className="text-white/60 hover:text-gold-500 transition-colors inline-flex items-center gap-1 group"
+                  <Link 
+                    to={link.path} 
+                    className="text-stone-400 hover:text-gold-500 transition-colors inline-flex items-center gap-1 group"
                   >
                     <span>{link.name}</span>
-                    <ArrowUpRight
-                      size={12}
-                      className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    <ArrowUpRight 
+                      size={12} 
+                      className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
                     />
                   </Link>
                 </motion.li>
@@ -132,7 +133,7 @@ const Footer = () => {
         >
           <h4 className="text-white font-serif text-lg mb-6">Headquarters</h4>
           <ul className="space-y-4 text-sm">
-            <motion.li
+            <motion.li 
               className="flex items-start space-x-3 group"
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400 }}
@@ -140,7 +141,7 @@ const Footer = () => {
               <MapPin size={18} className="text-gold-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <span className="group-hover:text-white transition-colors">123 Harvest Lane, Golden Fields,<br />California 90210</span>
             </motion.li>
-            <motion.li
+            <motion.li 
               className="flex items-center space-x-3 group"
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400 }}
@@ -148,7 +149,7 @@ const Footer = () => {
               <Phone size={18} className="text-gold-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <span className="group-hover:text-white transition-colors">+1 (555) 123-4567</span>
             </motion.li>
-            <motion.li
+            <motion.li 
               className="flex items-center space-x-3 group"
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400 }}
@@ -159,10 +160,10 @@ const Footer = () => {
           </ul>
         </motion.div>
       </div>
-
+      
       {/* Bottom Bar */}
-      <motion.div
-        className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 relative z-10"
+      <motion.div 
+        className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500 relative z-10"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.5 }}
@@ -170,11 +171,11 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} Tirupati Rice Co. All rights reserved.</p>
         <p>
           Mindfully crafted by{' '}
-          <motion.a
-            href="https://scraft.studio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-white/60 hover:text-gold-500 transition-colors inline-block"
+          <motion.a 
+            href="https://scraft.studio/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="font-bold text-stone-400 hover:text-gold-500 transition-colors inline-block"
             whileHover={{ scale: 1.05 }}
           >
             Scraft
