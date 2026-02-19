@@ -32,7 +32,7 @@ const About = () => {
       title: "Modernizing Tradition",
       desc: "Inaugurated our first state-of-the-art milling facility with Japanese Sortex technology, ensuring 'Pearl White' purity.",
       icon: <Factory className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop"
+      image: ""
     },
     {
       year: "2005",
