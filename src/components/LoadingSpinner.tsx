@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const LoadingSpinner = () => {
   return (
-    <div className="fixed inset-0 z-50 grid place-items-center bg-rice-50/95 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 grid place-items-center bg-brand-green">
       <div className="relative flex flex-col items-center">
 
         {/* Rice Bowl Animation Container */}
@@ -29,10 +29,10 @@ const LoadingSpinner = () => {
           ))}
 
           {/* Bowl Shape */}
-          <div className="absolute bottom-4 left-1/2 h-16 w-24 -translate-x-1/2 overflow-hidden rounded-b-full border-b-4 border-l-4 border-r-4 border-stone-400 bg-white/50">
+          <div className="absolute bottom-4 left-1/2 h-16 w-24 -translate-x-1/2 overflow-hidden rounded-b-full border-b-4 border-l-4 border-r-4 border-white/30 bg-white/10">
             {/* Filling Effect */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 bg-rice-200"
+              className="absolute bottom-0 left-0 right-0 bg-rice-100"
               initial={{ height: '0%' }}
               animate={{ height: ['0%', '100%', '0%'] }}
               transition={{
@@ -44,7 +44,7 @@ const LoadingSpinner = () => {
             >
               {/* Texture inside the rice pile */}
               <div className="h-full w-full opacity-30"
-                style={{ backgroundImage: 'radial-gradient(circle, #fff 2px, transparent 2.5px)', backgroundSize: '8px 8px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, #e6dbc4 2px, transparent 2.5px)', backgroundSize: '8px 8px' }}
               />
             </motion.div>
           </div>
@@ -56,8 +56,8 @@ const LoadingSpinner = () => {
             animate={{ opacity: [0, 0.6, 0] }}
             transition={{ duration: 2, repeat: Infinity, delay: 1 }}
           >
-            <div className="h-4 w-1 rounded-full bg-stone-300 blur-sm" />
-            <div className="mt-2 h-3 w-1 rounded-full bg-stone-300 blur-sm" />
+            <div className="h-4 w-1 rounded-full bg-white/40 blur-sm" />
+            <div className="mt-2 h-3 w-1 rounded-full bg-white/40 blur-sm" />
           </motion.div>
 
         </div>
@@ -70,13 +70,13 @@ const LoadingSpinner = () => {
           className="mt-2 flex flex-col items-center gap-2"
         >
           <motion.h3
-            className="font-serif text-lg tracking-widest text-stone-700"
-            animate={{ opacity: [0.6, 1, 0.6] }}
+            className="font-serif text-lg tracking-widest text-white"
+            animate={{ opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             TIRUPATI
           </motion.h3>
-          <p className="font-sans text-[10px] tracking-[0.2em] text-stone-400 uppercase">
+          <p className="font-sans text-[10px] tracking-[0.2em] text-rice-200 uppercase">
             Cultivating Tradition
           </p>
         </motion.div>

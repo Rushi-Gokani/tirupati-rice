@@ -12,19 +12,23 @@ module.exports = {
         sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        // Overriding 'stone' with a Premium Forest Green palette
+        // Neutral stone palette (restored from green override)
         stone: {
-          50: '#f2f7f4',  // Very light minty white
-          100: '#e1ece5', // Pale green mist
-          200: '#c3dacd', // Soft sage
-          300: '#98c0ad', // Muted green
-          400: '#6b9f88', // Leaf green
-          500: '#4d826a', // Medium plant green
-          600: '#3a6652', // Deep leaf
-          700: '#315243', // Shadow green
-          800: '#2a4238', // Dark text green (Primary Text)
-          900: '#1a2e26', // Deep Forest Green (Primary Backgrounds)
-          950: '#0d1a15', // Almost black green
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+          950: '#0c0a09',
+        },
+        // Brand green (use directly as bg-brand-green or bg-[#005e2a])
+        brand: {
+          green: '#005e2a',
         },
         // Enhanced Rice Colors - Warmer Cream/Beige
         rice: {
