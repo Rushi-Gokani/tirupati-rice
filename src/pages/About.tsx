@@ -22,36 +22,29 @@ const About = () => {
   const timelineEvents = [
     {
       year: "1985",
-      title: "The First Seed",
-      desc: "In the fertile lands of Punjab, our founder planted the first crop of Basmati. It wasn't just a business; it was a pact with the soil.",
+      title: "The Beginning",
+      desc: "A small rice business was established in Taraori (Karnal), Haryana, India, under the guidance of Late Shri Nathi Ram Gupta. The foundation was built with a clear vision to provide the finest quality rice to end consumers while maintaining strong ethical values and commitment to excellence.",
       icon: <Sprout className="w-5 h-5 text-white" />,
       image: "https://images.unsplash.com/photo-1599579088275-6939e6a04803?q=80&w=600&auto=format&fit=crop"
     },
     {
       year: "1998",
       title: "Modernizing Tradition",
-      desc: "Inaugurated our first state-of-the-art milling facility with Japanese Sortex technology, ensuring 'Pearl White' purity.",
+      desc: "We inaugurated our first state-of-the-art milling facility equipped with advanced Japanese Sortex technology. This marked a major step forward in quality enhancement, ensuring \"Pearl White\" purity and setting new benchmarks in rice processing standards.",
       icon: <Factory className="w-5 h-5 text-white" />,
       image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop"
     },
     {
       year: "2005",
       title: "Crossing Oceans",
-      desc: "Tirupati Rice officially went global. Our first major export consignment docked in London, bringing authentic Basmati to the UK.",
+      desc: "Tirupati Rice expanded into international markets and officially began its global journey. Our products gained appreciation across multiple countries, strengthening our presence and reputation worldwide.",
       icon: <Ship className="w-5 h-5 text-white" />,
       image: "https://images.unsplash.com/photo-1494412574643-35d324698420?q=80&w=600&auto=format&fit=crop"
     },
     {
-      year: "2015",
-      title: "The Organic Pledge",
-      desc: "Transitioned 10,000 acres to 100% organic cultivation, eliminating synthetic pesticides entirely for a healthier future.",
-      icon: <Leaf className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600&auto=format&fit=crop"
-    },
-    {
       year: "2025",
-      title: "Feeding the Future",
-      desc: "Now in 25+ countries, innovating with sustainable packaging and climate-resilient crop varieties.",
+      title: "Global Excellence & Advanced Automation",
+      desc: "Today, we proudly serve 40+ countries and continue to expand our global footprint. With a complete stainless-steel processing plant integrated with a PLC-based system and a high level of automation, we ensure superior purity, hygiene, and operational efficiency. Our focus remains on sustainable growth, customer trust, and continuous technological advancement.",
       icon: <Sun className="w-5 h-5 text-white" />,
       image: "https://images.unsplash.com/photo-1536622308103-68d7452d3a3d?q=80&w=600&auto=format&fit=crop"
     }
@@ -70,7 +63,7 @@ const About = () => {
     },
     {
       icon: <Users className="w-8 h-8 text-gold-500" />,
-      title: "Farmer Prosperity",
+      title: "Trust and Long-Term Relationships",
       desc: "Direct trade with 10,000+ farmers, ensuring fair compensation."
     }
   ];
@@ -234,6 +227,83 @@ const About = () => {
                 animate={storyInView ? { width: 128, height: 128 } : {}}
                 transition={{ duration: 1, delay: 0.8 }}
               />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 Leadership Profile */}
+      <section className="py-24 relative bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-gold-500 tracking-[0.3em] uppercase text-xs font-bold mb-4 block">Our Pillars</span>
+            <h2 className="text-4xl md:text-5xl font-serif tracking-tight text-stone-900">Leadership Profile</h2>
+            <div className="w-16 h-1 bg-gold-500 mx-auto mt-6 rounded-full" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Mr. Ravinder Kumar */}
+            <motion.div
+              className="bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-xl hover:border-gold-200 transition-all duration-300 flex flex-col items-center text-center group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
+                 {/* Placeholder for actual image */}
+                 <Users className="text-stone-400 w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Ravinder Kumar</h3>
+              <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
+              <p className="text-stone-600 leading-relaxed font-light text-sm">
+                Oversees paddy procurement and quality control, along with business development initiatives. He plays a key role in sourcing high-quality raw materials and strengthening supplier relationships while driving strategic growth opportunities for the company.
+              </p>
+            </motion.div>
+
+            {/* Mr. Vijender Kumar */}
+            <motion.div
+              className="bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-xl hover:border-gold-200 transition-all duration-300 flex flex-col items-center text-center group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -10 }}
+            >
+               <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
+                 <Users className="text-stone-400 w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Vijender Kumar</h3>
+              <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
+              <p className="text-stone-600 leading-relaxed font-light text-sm">
+                Responsible for finance and overall management of the organization. He also manages public relations and ensures strong stakeholder engagement, financial discipline, and sustainable operational governance.
+              </p>
+            </motion.div>
+
+            {/* Mr. Lalit Kumar */}
+            <motion.div
+              className="bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-xl hover:border-gold-200 transition-all duration-300 flex flex-col items-center text-center group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -10 }}
+            >
+               <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
+                 <Users className="text-stone-400 w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Lalit Kumar</h3>
+              <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
+              <p className="text-stone-600 leading-relaxed font-light text-sm">
+                Heads overall production operations, machinery management, and export sales. He ensures smooth plant functioning, production efficiency, quality standards, and expansion of international market presence.
+              </p>
             </motion.div>
           </div>
         </div>

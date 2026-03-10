@@ -73,7 +73,7 @@ const SignatureCollection = () => {
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                The Flagship
+                Premium Selection
               </motion.span>
               <motion.h3
                 className="text-3xl md:text-6xl font-serif mb-4 md:mb-6"
@@ -81,7 +81,7 @@ const SignatureCollection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                Tirupati Royal
+                Tirupati
               </motion.h3>
               <motion.p
                 className="text-stone-200 mb-6 md:mb-10 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
@@ -96,7 +96,7 @@ const SignatureCollection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/products"
+                  to="/brand/tirupati"
                   className="inline-block px-6 py-3 md:px-8 md:py-3 bg-white text-stone-900 hover:bg-gold-500 hover:text-white transition-all duration-300 uppercase tracking-widest text-xs md:text-sm font-medium relative overflow-hidden group/btn"
                 >
                   <span className="relative z-10">View Details</span>
@@ -155,7 +155,7 @@ const SignatureCollection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                Tirupati Gold
+                Mannat
               </motion.h3>
               <motion.p
                 className="text-stone-200 mb-6 md:mb-10 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
@@ -170,7 +170,7 @@ const SignatureCollection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to="/products"
+                  to="/brand/mannat"
                   className="inline-block px-6 py-3 md:px-8 md:py-3 bg-white text-stone-900 hover:bg-gold-500 hover:text-white transition-all duration-300 uppercase tracking-widest text-xs md:text-sm font-medium relative overflow-hidden group/btn"
                 >
                   <span className="relative z-10">View Details</span>

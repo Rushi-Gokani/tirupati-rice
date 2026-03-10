@@ -19,6 +19,8 @@ const Products = React.lazy(() => minLoad(() => import('./pages/Products')));
 const About = React.lazy(() => minLoad(() => import('./pages/About')));
 const Contact = React.lazy(() => minLoad(() => import('./pages/Contact')));
 const CustomersHappiness = React.lazy(() => minLoad(() => import('./pages/CustomersHappiness')));
+const TirupatiBrand = React.lazy(() => minLoad(() => import('./pages/TirupatiBrand')));
+const MannatBrand = React.lazy(() => minLoad(() => import('./pages/MannatBrand')));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -69,6 +71,22 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Products />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/brand/tirupati"
+          element={
+            <PageTransition>
+              <TirupatiBrand />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/brand/mannat"
+          element={
+            <PageTransition>
+              <MannatBrand />
             </PageTransition>
           }
         />

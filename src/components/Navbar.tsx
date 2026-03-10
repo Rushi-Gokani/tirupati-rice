@@ -94,7 +94,7 @@ const Navbar = () => {
                 src={Logo}
                 alt="Tirupati Rice"
                 className={cn(
-                  "h-10 md:h-12 w-auto object-contain transition-all duration-300",
+                  "h-20 md:h-28 w-auto object-contain transition-all duration-300",
                 )}
               />
             </motion.div>

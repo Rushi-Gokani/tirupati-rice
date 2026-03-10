@@ -22,8 +22,8 @@ const Footer = () => {
     {
       title: 'Our Brands',
       links: [
-        { name: 'Tirupati Royal', path: '/products' },
-        { name: 'Tirupati Gold', path: '/products' },
+        { name: 'Tirupati', path: '/brand/tirupati' },
+        { name: 'Mannat', path: '/brand/mannat' },
       ],
     },
   ];

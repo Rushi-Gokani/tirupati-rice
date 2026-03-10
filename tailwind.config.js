@@ -30,18 +30,18 @@ module.exports = {
         brand: {
           green: '#005e2a',
         },
-        // Enhanced Rice Colors - Warmer Cream/Beige
+        // Paddy Field Green Colors (Replacing the old brown theme)
         rice: {
-          50: '#fdfcf8',  // Purest cream
-          100: '#f9f6ef', // Off-white
-          200: '#f0eadd', // Raw rice color
-          300: '#e6dbc4', // Husk color
-          400: '#d6c4a3', // Darker husk
-          500: '#bfa586', // Sack color
-          600: '#a3886b',
-          700: '#856b54',
-          800: '#6d5847',
-          900: '#59493d',
+          50: '#f2fcf5',  // Very light green tint
+          100: '#e1f8e8', // Lightest green
+          200: '#c3efd1', // Light paddy green
+          300: '#94dfad', // Soft green
+          400: '#5ec882', // Bright paddy field green
+          500: '#38ab5f', // Main paddy green
+          600: '#278848', // Deep green
+          700: '#236b3b', // Darker green
+          800: '#205531', // Very dark green
+          900: '#1b462a', // Deepest green
         },
         // Richer Gold for contrast against Green
         gold: {
