@@ -13,8 +13,10 @@ import iso9001Pdf from '../../images/Certificate/ISO_9001_Certificate-10.01.2025
 
 import histBeginning from '../../images/history-beginning.jpg';
 import histModernizing from '../../images/history-modernizing.jpg';
-import rice1718 from '../../images/rice-1718-steam.jpg';
-import ricePusa from '../../images/rice-pusa-steam.jpg';
+import rice1718 from '../../images/infra-rice-plant.png';
+import ricePusa from '../../images/infra-logistics.jpg';
+import infraMachinery from '../../images/infra-machinery.jpg';
+import infraRicePlant from '../../images/infra-rice-plant.png';
 
 const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -89,13 +91,13 @@ const About = () => {
           className="absolute inset-0 w-full h-full"
         >
           <FadeInImage
-            src="https://images.unsplash.com/photo-1536622308103-68d7452d3a3d?q=80&w=2000&auto=format&fit=crop"
+            src={infraRicePlant}
             alt="Old hands holding rice"
             className="w-full h-full object-cover opacity-50"
             containerClassName="w-full h-full"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-transparent to-stone-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/10 via-transparent to-stone-50" />
         </motion.div>
 
         <FloatingGrains />
@@ -107,7 +109,7 @@ const About = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.span
-              className="text-gold-400 tracking-[0.4em] uppercase text-xs md:text-sm font-bold mb-6 block"
+              className="text-black tracking-[0.4em] uppercase text-xs md:text-sm font-bold mb-6 block"
               initial={{ opacity: 0, y: 20 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -115,14 +117,14 @@ const About = () => {
               Our Story
             </motion.span>
             <motion.h1
-              className="text-5xl md:text-8xl font-serif font-bold mb-8 leading-tight tracking-tight drop-shadow-lg"
+              className="text-5xl md:text-8xl font-serif font-bold mb-8 leading-tight tracking-tight text-stone-900"
               initial={{ opacity: 0, y: 40 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Rooted in <br />
               <motion.span
-                className="italic font-light text-gold-200"
+                className="italic font-light text-black"
                 initial={{ opacity: 0 }}
                 animate={heroInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -139,7 +141,7 @@ const About = () => {
             />
 
             <motion.p
-              className="text-lg md:text-2xl text-stone-100 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+              className="text-lg md:text-2xl text-stone-800 font-light max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -218,7 +220,7 @@ const About = () => {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] rotate-2 hover:rotate-0 transition-transform duration-700 ease-out">
                 <FadeInImage
-                  src="images/Plant and machinery .JPG.jpeg"
+                  src={infraMachinery}
                   alt="Founder or Traditional Farming"
                   className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
                   containerClassName="w-full h-full"
