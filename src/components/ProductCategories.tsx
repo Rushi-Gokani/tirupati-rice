@@ -27,7 +27,7 @@ const PRODUCTS = [
         id: '1401-basmati',
         title: '1401 Basmati Rice',
         description: 'Early-maturing aromatic variety with soft texture.',
-        image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=600&auto=format&fit=crop&crop=focalpoint&fp-y=0.6',
+        image: '1401 white sella.jpg.jpeg',
         type: 'Basmati'
     },
     {
