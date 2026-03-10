@@ -2,9 +2,9 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Factory, Beaker, Megaphone, Trophy } from 'lucide-react';
-import img12 from '../Infrastructure/12 (1).jpg';
-import img13 from '../Infrastructure/13 (1).jpg';
-import img14 from '../Infrastructure/14 (1).jpg';
+import img12 from '../../images/infra-machinery.jpg';
+import img13 from '../../images/infra-logistics.jpg';
+import img14 from '../../images/infra-rice-mill.png';
 import WorldMap from './WorldMap';
 
 const GlobalReach = () => {

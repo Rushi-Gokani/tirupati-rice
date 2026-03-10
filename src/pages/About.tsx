@@ -1,8 +1,20 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Award, Users, Leaf, Globe, CheckCircle, Sprout, Factory, Ship, Sun } from 'lucide-react';
+import { Award, Users, Leaf, CheckCircle, Sprout, Factory, Ship, Sun, FileText, ExternalLink } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 import FloatingGrains from '../components/ui/FloatingGrains';
+
+import certPhoto from '../../images/Certificate/WhatsApp-Image-2026-03-09-at-18.52.09.jpeg';
+import factoryPdf from '../../images/Certificate/FACTORY-LICENSE-2025-TIRUPATI.pdf';
+import fssaiPdf from '../../images/Certificate/FASSAI-CERTIFICATE-AS-ONN-30.11.2025-TO-29.11.2030.pdf';
+import haccpPdf from '../../images/Certificate/HACCP-10.01.2025.pdf';
+import iso22000Pdf from '../../images/Certificate/ISO_22000_Certificate-10.01.2025.pdf';
+import iso9001Pdf from '../../images/Certificate/ISO_9001_Certificate-10.01.2025.pdf';
+
+import histBeginning from '../../images/history-beginning.jpg';
+import histModernizing from '../../images/history-modernizing.jpg';
+import rice1718 from '../../images/rice-1718-steam.jpg';
+import ricePusa from '../../images/rice-pusa-steam.jpg';
 
 const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -25,28 +37,28 @@ const About = () => {
       title: "The Beginning",
       desc: "A small rice business was established in Taraori (Karnal), Haryana, India, under the guidance of Late Shri Nathi Ram Gupta. The foundation was built with a clear vision to provide the finest quality rice to end consumers while maintaining strong ethical values and commitment to excellence.",
       icon: <Sprout className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1599579088275-6939e6a04803?q=80&w=600&auto=format&fit=crop"
+      image: histBeginning
     },
     {
       year: "1998",
       title: "Modernizing Tradition",
       desc: "We inaugurated our first state-of-the-art milling facility equipped with advanced Japanese Sortex technology. This marked a major step forward in quality enhancement, ensuring \"Pearl White\" purity and setting new benchmarks in rice processing standards.",
       icon: <Factory className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop"
+      image: histModernizing
     },
     {
       year: "2005",
       title: "Crossing Oceans",
       desc: "Tirupati Rice expanded into international markets and officially began its global journey. Our products gained appreciation across multiple countries, strengthening our presence and reputation worldwide.",
       icon: <Ship className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1494412574643-35d324698420?q=80&w=600&auto=format&fit=crop"
+      image: rice1718
     },
     {
       year: "2025",
       title: "Global Excellence & Advanced Automation",
       desc: "Today, we proudly serve 40+ countries and continue to expand our global footprint. With a complete stainless-steel processing plant integrated with a PLC-based system and a high level of automation, we ensure superior purity, hygiene, and operational efficiency. Our focus remains on sustainable growth, customer trust, and continuous technological advancement.",
       icon: <Sun className="w-5 h-5 text-white" />,
-      image: "https://images.unsplash.com/photo-1536622308103-68d7452d3a3d?q=80&w=600&auto=format&fit=crop"
+      image: ricePusa
     }
   ];
 
@@ -206,7 +218,7 @@ const About = () => {
             >
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] rotate-2 hover:rotate-0 transition-transform duration-700 ease-out">
                 <FadeInImage
-                  src="https://images.unsplash.com/photo-1591032777853-946cb323af20?q=80&w=1000&auto=format&fit=crop"
+                  src="images/Plant and machinery .JPG.jpeg"
                   alt="Founder or Traditional Farming"
                   className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
                   containerClassName="w-full h-full"
@@ -258,8 +270,8 @@ const About = () => {
               whileHover={{ y: -10 }}
             >
               <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
-                 {/* Placeholder for actual image */}
-                 <Users className="text-stone-400 w-10 h-10" />
+                {/* Placeholder for actual image */}
+                <Users className="text-stone-400 w-10 h-10" />
               </div>
               <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Ravinder Kumar</h3>
               <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
@@ -277,8 +289,8 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ y: -10 }}
             >
-               <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
-                 <Users className="text-stone-400 w-10 h-10" />
+              <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
+                <Users className="text-stone-400 w-10 h-10" />
               </div>
               <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Vijender Kumar</h3>
               <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
@@ -296,8 +308,8 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               whileHover={{ y: -10 }}
             >
-               <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
-                 <Users className="text-stone-400 w-10 h-10" />
+              <div className="w-24 h-24 bg-stone-200 rounded-full mb-6 flex items-center justify-center border-4 border-white shadow-md overflow-hidden group-hover:border-gold-300 transition-colors">
+                <Users className="text-stone-400 w-10 h-10" />
               </div>
               <h3 className="text-2xl font-serif text-stone-900 font-bold mb-2">Mr. Lalit Kumar</h3>
               <p className="text-sm text-gold-600 font-bold uppercase tracking-wider mb-4">Managing Director</p>
@@ -448,37 +460,69 @@ const About = () => {
         </div>
       </section>
 
-      {/* 5. Certifications */}
-      <motion.section
-        className="py-16 bg-white border-t border-stone-100"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-6xl mx-auto px-6">
+      {/* 5. Accreditations & Certifications */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="flex flex-wrap justify-between items-center gap-8 md:gap-12 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-            whileHover={{ scale: 1.01 }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            {[
-              { icon: Award, label: 'ISO 22000' },
-              { icon: Leaf, label: 'USDA Organic' },
-              { icon: Globe, label: 'FDA Approved' },
-              { icon: CheckCircle, label: 'Non-GMO' },
-            ].map((cert, idx) => (
-              <motion.div
-                key={cert.label}
-                className="flex flex-col items-center gap-3 flex-1 min-w-[150px] p-6 rounded-lg hover:bg-stone-50 transition-colors"
-                whileHover={{ y: -5 }}
-              >
-                <cert.icon size={32} className="text-stone-800" />
-                <span className="font-bold text-stone-800 text-sm tracking-widest uppercase">{cert.label}</span>
-              </motion.div>
-            ))}
+            <span className="text-gold-500 tracking-[0.3em] uppercase text-xs font-bold mb-4 block">Quality Assured</span>
+            <h2 className="text-4xl md:text-5xl font-serif tracking-tight text-stone-900">Accreditations & Certifications</h2>
+            <div className="w-16 h-1 bg-gold-500 mx-auto mt-6 rounded-full" />
+            <p className="max-w-2xl mx-auto mt-6 text-stone-600 leading-relaxed font-light">
+              We adhere to the highest global standards for food safety and quality management. Our state-of-the-art facilities and processes are certified by leading international organizations.
+            </p>
           </motion.div>
+
+          <div className="max-w-6xl mx-auto">
+            {/* PDF Grid */}
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {[
+                { name: "ISO 9001:2015", desc: "Quality Management System", file: iso9001Pdf },
+                { name: "ISO 22000:2018", desc: "Food Safety Management", file: iso22000Pdf },
+                { name: "HACCP", desc: "Hazard Analysis Critical Control Point", file: haccpPdf },
+                { name: "FSSAI", desc: "Food Safety & Standards", file: fssaiPdf },
+                { name: "Factory License", desc: "Government Approved", file: factoryPdf },
+                { name: "Registration Certificate", desc: "Official Compliance", file: certPhoto },
+              ].map((cert, idx) => (
+                <motion.a
+                  key={idx}
+                  href={cert.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-2xl hover:bg-white hover:border-gold-300 transition-all duration-300"
+                  whileHover={{ y: -10 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * idx }}
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-gold-50 text-gold-600 rounded-2xl flex items-center justify-center group-hover:bg-gold-600 group-hover:text-white transition-all duration-500 border border-gold-100 group-hover:border-gold-600 rotate-3 group-hover:rotate-0">
+                      <FileText className="w-7 h-7" />
+                    </div>
+                    <div className="w-10 h-10 bg-stone-100 text-stone-400 rounded-full flex items-center justify-center group-hover:bg-gold-50 group-hover:text-gold-600 transition-colors">
+                      <ExternalLink className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold font-serif text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{cert.name}</h3>
+                  <p className="text-sm text-stone-500 line-clamp-2 leading-relaxed font-light">{cert.desc}</p>
+                </motion.a>
+              ))}
+            </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };

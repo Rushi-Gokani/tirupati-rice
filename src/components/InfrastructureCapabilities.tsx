@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Droplets, Settings, Award, Shield, Users, CheckCircle2, Factory, Cpu } from 'lucide-react';
 
-import infrastructureImage from '../Infrastructure/9.jpg';
-import img12 from '../Infrastructure/12 (1).jpg';
-import img13 from '../Infrastructure/13 (1).jpg';
-import img14 from '../Infrastructure/14 (1).jpg';
+import infrastructureImage from "../../images/infra-1.jpg";
+import img12 from "../../images/infra-2.jpg";
+import img13 from "../../images/infra-logistics.jpg";
+import img14 from '../../images/Laboratory.png';
 
 const InfrastructureCapabilities = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -221,7 +221,7 @@ const InfrastructureCapabilities = () => {
 
                                 <div className="text-lg text-stone-600 leading-relaxed text-justify space-y-4">
                                     <p>
-                                        The plant is constructed entirely of high-grade stainless steel, ensuring corrosion resistance, fire and heat resistance, impact strength, and hygienic food-grade processing standards. It operates with a high degree of automation through a centralized PLC (Programmable Logic Controller) system. 
+                                        The plant is constructed entirely of high-grade stainless steel, ensuring corrosion resistance, fire and heat resistance, impact strength, and hygienic food-grade processing standards. It operates with a high degree of automation through a centralized PLC (Programmable Logic Controller) system.
                                     </p>
                                     <p>
                                         The complete process is digitally monitored and controlled via a central interface, with automatic alarms triggered in case of irregularities. Whiteness is monitored online and continuously reported to the PLC. All material movements are electronically recorded, enabling real-time yield reports and management reporting.
@@ -245,7 +245,7 @@ const InfrastructureCapabilities = () => {
                                 </h3>
                                 <div className="text-lg text-stone-600 leading-relaxed text-justify space-y-4">
                                     <p>
-                                        Our facility includes a 3 MW Rice Husk Power Plant that ensures uninterrupted production. Rice husk, an agricultural by-product, is converted into fuel gas, which generates high-pressure steam in boilers. 
+                                        Our facility includes a 3 MW Rice Husk Power Plant that ensures uninterrupted production. Rice husk, an agricultural by-product, is converted into fuel gas, which generates high-pressure steam in boilers.
                                     </p>
                                     <p>
                                         This steam drives a turbine generator to produce electricity for our rice plant, enabling continuous operations 24 hours a day, 365 days a year without power interruptions. The resulting paddy ash is supplied to local farmers as natural manure to enhance soil fertility.
