@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Leaf, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FadeInImage from '../components/ui/FadeInImage';
 import goldenSella1401 from '../../images/mannat-gold/1401-golden-sella.jpg';
 import goldenSella1509 from '../../images/mannat-gold/1509-basmati-golden-sella-rice.jpg';
@@ -84,7 +85,7 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Header */}
-      <div ref={headerRef} className="pt-28 md:pt-36 pb-12 md:pb-20 text-center px-6 bg-rice-50">
+      <div ref={headerRef} className="pt-36 md:pt-44 pb-12 md:pb-20 text-center px-6 bg-rice-50">
         <div className="max-w-4xl mx-auto">
           <motion.span
             className="text-gold-600 tracking-widest uppercase text-xs font-bold mb-3 block"
@@ -161,21 +162,23 @@ const Products = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100"
+              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 cursor-pointer"
             >
-              <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
-                <FadeInImage
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                  containerClassName="w-full h-full bg-stone-100"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
-              </div>
+              <Link to="/contact" className="block">
+                <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
+                  <FadeInImage
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    containerClassName="w-full h-full bg-stone-100"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
+                  <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -206,20 +209,22 @@ const Products = () => {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="group bg-stone-50 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200"
+                className="group bg-stone-50 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer"
               >
-                <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
-                  <FadeInImage
-                    src={item.image || goldRiceImage}
-                    alt={item.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
-                    containerClassName="w-full h-full bg-stone-100"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
-                  <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
-                </div>
+                <Link to="/contact" className="block">
+                  <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
+                    <FadeInImage
+                      src={item.image || goldRiceImage}
+                      alt={item.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                      containerClassName="w-full h-full bg-stone-100"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
+                    <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

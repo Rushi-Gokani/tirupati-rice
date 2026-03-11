@@ -169,9 +169,9 @@ const ProductCategories = () => {
                         {PRODUCTS.map((product) => (
                             <div
                                 key={product.id}
-                                className="min-w-[280px] md:min-w-[320px] snap-center md:snap-start bg-white rounded-lg border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full"
+                                className="min-w-[280px] md:min-w-[320px] snap-center md:snap-start bg-white rounded-lg border border-stone-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full cursor-pointer"
                             >
-                                <Link to="/products" className="block relative h-56 overflow-hidden bg-stone-100">
+                                <Link to="/contact" className="block relative h-56 overflow-hidden bg-stone-100">
                                     <FadeInImage
                                         src={product.image}
                                         alt={product.title}
@@ -185,7 +185,7 @@ const ProductCategories = () => {
                                 </Link>
 
                                 <div className="p-6 flex flex-col flex-grow">
-                                    <Link to="/products">
+                                    <Link to="/contact">
                                         <h3 className="text-lg font-serif font-bold text-stone-900 mb-2 group-hover:text-gold-600 transition-colors line-clamp-1">
                                             {product.title}
                                         </h3>
@@ -194,10 +194,10 @@ const ProductCategories = () => {
                                         {product.description}
                                     </p>
                                     <Link
-                                        to="/products"
+                                        to="/contact"
                                         className="inline-flex items-center gap-2 text-stone-900 font-medium text-sm w-fit group/link"
                                     >
-                                        <span className="border-b border-transparent group-hover/link:border-gold-600 group-hover/link:text-gold-600 transition-all">View Details</span>
+                                        <span className="border-b border-transparent group-hover/link:border-gold-600 group-hover/link:text-gold-600 transition-all">Contact Us</span>
                                         <ArrowRight size={14} className="group-hover/link:text-gold-600 group-hover/link:translate-x-1 transition-all" />
                                     </Link>
                                 </div>
