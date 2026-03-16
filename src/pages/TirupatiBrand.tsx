@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, CheckCircle, Package } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';

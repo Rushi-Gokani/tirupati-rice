@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -14,9 +13,18 @@ const Footer = () => {
       title: 'Explore',
       links: [
         { name: 'Home', path: '/' },
-        { name: 'Our Brands', path: '/products' },
+        { name: 'Products', path: '/products' },
         { name: 'Heritage', path: '/about' },
         { name: 'Contact Us', path: '/contact' },
+      ],
+    },
+    {
+      title: 'Basmati Varieties',
+      links: [
+        { name: '1121 Basmati', path: '/products/1121-basmati' },
+        { name: '1401 Basmati', path: '/products/1401-basmati' },
+        { name: '1718 Basmati', path: '/products/1718-basmati' },
+        { name: '1509 Basmati', path: '/products/1509-basmati' },
       ],
     },
     {
@@ -54,7 +62,7 @@ const Footer = () => {
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6 relative z-10">
         {/* Brand Column */}
         <motion.div
           className="space-y-6"

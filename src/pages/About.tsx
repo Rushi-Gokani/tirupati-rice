@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Award, Users, Leaf, CheckCircle, Sprout, Factory, Ship, Sun, FileText, ExternalLink } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { Award, Users, Leaf, Sprout, Factory, Ship, Sun, X, Maximize2 } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 import FloatingGrains from '../components/ui/FloatingGrains';
 
@@ -9,16 +9,18 @@ import factoryPdf from '../../images/Certificate/FACTORY-LICENSE-2025-TIRUPATI.p
 import fssaiPdf from '../../images/Certificate/FASSAI-CERTIFICATE-AS-ONN-30.11.2025-TO-29.11.2030.pdf';
 import haccpPdf from '../../images/Certificate/HACCP-10.01.2025.pdf';
 import iso22000Pdf from '../../images/Certificate/ISO_22000_Certificate-10.01.2025.pdf';
-import iso9001Pdf from '../../images/Certificate/ISO_9001_Certificate-10.01.2025.pdf';
+import iso9001Img from '../../images/Certificate/iso new.png';
 
 import histBeginning from '../../images/history-beginning.jpg';
 import histModernizing from '../../images/history-modernizing.jpg';
 import rice1718 from '../../images/infra-rice-plant.png';
 import ricePusa from '../../images/infra-logistics.jpg';
 import infraMachinery from '../../images/infra-machinery.jpg';
-import infraRicePlant from '../../images/infra-rice-plant.png';
+import infraRicePlant from '../../images/saiful-islam-rubell-RMwcgcLLfts-unsplash.jpg';
 
 const About = () => {
+  const [selectedCert, setSelectedCert] = useState<{name: string, desc: string, file: string, isPdf?: boolean} | null>(null);
+
   const heroRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLElement>(null);
   const valuesRef = useRef<HTMLElement>(null);
@@ -97,7 +99,7 @@ const About = () => {
             containerClassName="w-full h-full"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/10 via-transparent to-stone-50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/10 via-transparent via-80% to-stone-50" />
         </motion.div>
 
         <FloatingGrains />
@@ -141,7 +143,7 @@ const About = () => {
             />
 
             <motion.p
-              className="text-lg md:text-2xl text-stone-800 font-light max-w-3xl mx-auto leading-relaxed"
+              className="text-lg md:text-2xl text-stone-800 font-semibold max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -481,52 +483,124 @@ const About = () => {
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            {/* PDF Grid */}
+             {/* Certificate Grid with Preview */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {[
-                { name: "ISO 9001:2015", desc: "Quality Management System", file: iso9001Pdf },
-                { name: "ISO 22000:2018", desc: "Food Safety Management", file: iso22000Pdf },
-                { name: "HACCP", desc: "Hazard Analysis Critical Control Point", file: haccpPdf },
-                { name: "FSSAI", desc: "Food Safety & Standards", file: fssaiPdf },
-                { name: "Factory License", desc: "Government Approved", file: factoryPdf },
-                { name: "Registration Certificate", desc: "Official Compliance", file: certPhoto },
-              ].map((cert, idx) => (
-                <motion.a
-                  key={idx}
-                  href={cert.file}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-2xl hover:bg-white hover:border-gold-300 transition-all duration-300"
-                  whileHover={{ y: -10 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * idx }}
-                >
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 bg-gold-50 text-gold-600 rounded-2xl flex items-center justify-center group-hover:bg-gold-600 group-hover:text-white transition-all duration-500 border border-gold-100 group-hover:border-gold-600 rotate-3 group-hover:rotate-0">
-                      <FileText className="w-7 h-7" />
+                { name: "ISO 9001:2015", desc: "Quality Management System", file: iso9001Img, isPdf: false },
+                { name: "ISO 22000:2018", desc: "Food Safety Management", file: iso22000Pdf, isPdf: true },
+                { name: "HACCP", desc: "Hazard Analysis Critical Control Point", file: haccpPdf, isPdf: true },
+                { name: "FSSAI", desc: "Food Safety & Standards", file: fssaiPdf, isPdf: true },
+                { name: "Factory License", desc: "Government Approved", file: factoryPdf, isPdf: true },
+                { name: "Registration Certificate", desc: "Official Compliance", file: certPhoto, isPdf: false },
+              ].map((cert, idx) => {
+                return (
+                  <motion.div
+                    key={idx}
+                    onClick={() => setSelectedCert(cert)}
+                    className="group bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-xl hover:border-gold-400 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col"
+                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * idx }}
+                  >
+                    <div className="relative aspect-[3/4] bg-stone-100 overflow-hidden">
+                      {cert.isPdf ? (
+                        <div className="w-full h-full relative"><iframe src={`${cert.file}#page=1&view=FitH&toolbar=0&navpanes=0`} className="w-full h-full pointer-events-none" title={cert.name} /><div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" /></div>
+                      ) : (
+                        <img 
+                          src={cert.file} 
+                          alt={cert.name}
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                      )}
+                      <div className="absolute top-3 right-3 w-9 h-9 bg-white/90 backdrop-blur-sm text-stone-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md">
+                        <Maximize2 className="w-4 h-4" />
+                      </div>
+                      {cert.isPdf && (
+                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded uppercase tracking-wider">PDF</div>
+                      )}
                     </div>
-                    <div className="w-10 h-10 bg-stone-100 text-stone-400 rounded-full flex items-center justify-center group-hover:bg-gold-50 group-hover:text-gold-600 transition-colors">
-                      <ExternalLink className="w-5 h-5" />
+                    <div className="p-4 bg-white text-center">
+                      <h3 className="text-sm font-bold font-serif text-stone-900 group-hover:text-gold-600 transition-colors leading-tight">{cert.name}</h3>
                     </div>
-                  </div>
-                  <h3 className="text-xl font-bold font-serif text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{cert.name}</h3>
-                  <p className="text-sm text-stone-500 line-clamp-2 leading-relaxed font-light">{cert.desc}</p>
-                </motion.a>
-              ))}
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-stone-100 bg-stone-50 shrink-0">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-stone-900">{selectedCert.name}</h3>
+                  <p className="text-stone-500 text-sm mt-1">{selectedCert.desc}</p>
+                </div>
+                <button
+                  onClick={() => setSelectedCert(null)}
+                  className="p-2 text-stone-500 hover:text-stone-900 transition-colors bg-stone-200 hover:bg-stone-300 rounded-full shrink-0"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              {/* Modal Body */}
+              <div className="flex-1 w-full bg-stone-100/50 relative overflow-hidden flex items-center justify-center p-4">
+                {selectedCert.isPdf ? (
+                  <iframe 
+                    src={`${selectedCert.file}#view=FitH`} 
+                    className="w-full h-full rounded-lg shadow-inner border border-stone-200 bg-white" 
+                    title={selectedCert.name} 
+                  />
+                ) : (
+                  <img 
+                    src={selectedCert.file} 
+                    alt={selectedCert.name} 
+                    className="max-w-full max-h-full object-contain rounded-lg shadow-md" 
+                  />
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default About;
+
+
+
+
+
+
+
+
+

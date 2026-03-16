@@ -241,11 +241,11 @@ const InfrastructureCapabilities = () => {
                                 </div>
                                 <h3 className="text-3xl font-serif text-[#005e2a] mb-6 flex items-center gap-4 md:block">
                                     <span className="md:hidden bg-[#005e2a]/10 p-2 rounded-full"><Cpu size={20} className="text-[#005e2a]" /></span>
-                                    3 MW Rice Husk Power Plant
+                                   1.2 KW Husk Plant
                                 </h3>
                                 <div className="text-lg text-stone-600 leading-relaxed text-justify space-y-4">
                                     <p>
-                                        Our facility includes a 3 MW Rice Husk Power Plant that ensures uninterrupted production. Rice husk, an agricultural by-product, is converted into fuel gas, which generates high-pressure steam in boilers.
+                                        Our facility includes a 1.2 KW Rice Husk Power Plant that ensures uninterrupted production. Rice husk, an agricultural by-product, is converted into fuel gas, which generates high-pressure steam in boilers.
                                     </p>
                                     <p>
                                         This steam drives a turbine generator to produce electricity for our rice plant, enabling continuous operations 24 hours a day, 365 days a year without power interruptions. The resulting paddy ash is supplied to local farmers as natural manure to enhance soil fertility.

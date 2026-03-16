@@ -1,17 +1,176 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Leaf, Star } from 'lucide-react';
+import { ArrowRight, Leaf, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInImage from '../components/ui/FadeInImage';
-import goldenSella1401 from '../../images/mannat-gold/1401-golden-sella.jpg';
-import goldenSella1509 from '../../images/mannat-gold/1509-basmati-golden-sella-rice.jpg';
+
 import steam1121 from '../../images/rice-1121-steam.jpg';
-import traditionalBasmati from '../../images/mannat-gold/Pusa-basmati-golden-sella.jpg';
-import sharbatiRice from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
-import sugandhaRice from '../../images/mannat-gold/Sugandha-golden-sella.jpg';
+import raw1121 from '../../images/rice-1121-raw.jpg';
+import gold1121 from '../../images/mannat-gold/1401-golden-sella.jpg';
+import white1121 from '../../images/tirupati-white/1121-white-sella.jpg';
+
+import steam1401 from '../../images/rice-1401-steam.jpg';
+import gold1401 from '../../images/mannat-gold/1401-golden-sella.jpg';
+import white1401 from '../../images/tirupati-white/1401-white-sella.jpg';
+import raw1401 from '../../images/rice-1121-raw.jpg';
+
+import steam1509 from '../../images/rice-1509-steam.jpg';
+import raw1509 from '../../images/rice-1509-raw.jpg';
+import gold1509 from '../../images/mannat-gold/1509-basmati-golden-sella-rice.jpg';
+
+import pusaSteam from '../../images/rice-1121-steam.jpg';
+import pusaGold from '../../images/mannat-gold/Pusa-basmati-golden-sella.jpg';
+import pusaWhite from '../../images/tirupati-white/Pusa-basmati-white-sella.jpg';
+
+import tradRaw from '../../images/rice-traditional-raw.jpg';
+import tradWhite from '../../images/tirupati-white/Traditional-basmati-white-sella.jpg';
+
 import sonaMasoori from '../../images/rice-sona-masoori.jpg';
 
-const goldRiceImage = "data:image/jpeg;base64,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";
+import pr1114Gold from '../../images/mannat-gold/PR-1114-golden-sella.jpg';
+import pr1114White from '../../images/tirupati-white/PR1114-white-sella.jpg';
+
+import sugandhaGold from '../../images/mannat-gold/Sugandha-golden-sella.jpg';
+import sugandhaWhite from '../../images/tirupati-white/Sugandha-white-sella.jpg';
+
+import sharbatiGold from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
+import sharbatiWhite from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
+
+const typeColors = {
+  golden: { bg: 'bg-gradient-to-br from-amber-50 to-amber-100', border: 'border-amber-200', text: 'text-amber-800', accent: 'text-amber-600', badge: 'bg-gradient-to-r from-amber-500 to-amber-600' },
+  white: { bg: 'bg-gradient-to-br from-stone-50 to-stone-100', border: 'border-stone-200', text: 'text-stone-700', accent: 'text-stone-600', badge: 'bg-gradient-to-r from-stone-400 to-stone-500' },
+  steam: { bg: 'bg-gradient-to-br from-slate-50 to-blue-50', border: 'border-slate-200', text: 'text-slate-700', accent: 'text-slate-600', badge: 'bg-gradient-to-r from-slate-500 to-slate-600' },
+  creamy: { bg: 'bg-gradient-to-br from-orange-50 to-amber-50', border: 'border-orange-200', text: 'text-orange-800', accent: 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-amber-500' },
+  raw: { bg: 'bg-gradient-to-br from-neutral-50 to-stone-100', border: 'border-neutral-200', text: 'text-neutral-700', accent: 'text-neutral-600', badge: 'bg-gradient-to-r from-neutral-500 to-stone-500' }
+};
+
+interface SubVariety {
+  name: string;
+  type: 'golden' | 'white' | 'steam' | 'creamy' | 'raw';
+  description: string;
+  image: string;
+  brands: string[];
+}
+
+interface Variety {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  subVarieties: SubVariety[];
+}
+
+const basmatiVarieties: Variety[] = [
+  {
+    id: '1121-basmati',
+    title: '1121 Basmati Rice',
+    subtitle: "World's Longest Grain",
+    description: 'Premium extra-long grain Basmati reaching 8.35mm. Known for exceptional elongation and fluffy texture. Perfect for biryani and special occasions.',
+    image: gold1121,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Parboiled golden variety with enhanced nutritional retention. The golden hue indicates the parboiling process that locks in vitamins and minerals.', image: gold1121, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'Premium white parboiled rice with a clean appearance. Perfect for those who prefer traditional white rice with the benefits of parboiling.', image: white1121, brands: ['Tirupati'] },
+      { name: 'Steam Rice', type: 'steam', description: 'Steam-treated for perfect texture and extended shelf life. The steaming process ensures consistent cooking results with minimal breakage.', image: steam1121, brands: ['Tirupati', 'Mannat'] },
+      { name: 'Raw Rice', type: 'raw', description: 'Pure raw Basmati in its natural form. Untouched by processing, it offers the authentic Basmati experience with maximum aroma and natural taste.', image: raw1121, brands: ['Tirupati', 'Mannat'] }
+    ]
+  },
+  {
+    id: '1509-basmati',
+    title: '1509 Basmati Rice',
+    subtitle: 'Long Grain Perfection',
+    description: 'Long slender grains with excellent aroma and faster cooking time. Great value without compromising on quality.',
+    image: gold1509,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Golden parboiled variety with rich taste and enhanced nutrition. Perfect for those who want premium quality at excellent value.', image: gold1509, brands: ['Mannat'] },
+      { name: 'Steam Rice', type: 'steam', description: 'Steam-processed long grain rice for consistent cooking results. Quick to prepare with reliable texture every time.', image: steam1509, brands: ['Tirupati', 'Mannat'] },
+      { name: 'Raw Rice', type: 'raw', description: 'Pure 1509 Basmati in its natural state. Offers authentic taste and maximum aroma for traditional cooking.', image: raw1509, brands: ['Tirupati', 'Mannat'] }
+    ]
+  },
+  {
+    id: '1401-basmati',
+    title: '1401 Basmati Rice',
+    subtitle: 'Aromatic & Early Maturing',
+    description: 'Early-maturing aromatic variety with soft texture and superior taste. Ideal for everyday premium meals with shorter cooking time.',
+    image: steam1401,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Golden parboiled rice with excellent nutritional value. The parboiling process enhances the vitamin content while maintaining aromatic properties.', image: gold1401, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'Clean white parboiled rice with superior cooking properties. Perfect for households seeking quality rice for everyday consumption.', image: white1401, brands: ['Tirupati'] },
+      { name: 'Steam Rice', type: 'steam', description: 'Steam-processed for consistent quality and extended freshness. Delivers reliable results every time with minimal effort.', image: steam1401, brands: ['Tirupati', 'Mannat'] },
+      { name: 'Raw Rice', type: 'raw', description: 'Pure 1401 Basmati in its natural state. Offers authentic taste and maximum aroma for traditional cooking.', image: raw1401, brands: ['Tirupati', 'Mannat'] }
+    ]
+  },
+  {
+    id: 'pusa-basmati',
+    title: 'Pusa Basmati Rice',
+    subtitle: 'Aromatic & Flavorful',
+    description: 'A classic Basmati variety recognized for its appealing aroma and great taste. Known for reliable cooking and grain separation.',
+    image: pusaSteam,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Golden parboiled Pusa rice, parboiled to retain nutrients while offering typical Basmati flavor.', image: pusaGold, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'Clean white parboiled Pusa rice, offering fluffy separation and ease of use in diverse recipes.', image: pusaWhite, brands: ['Tirupati'] },
+      { name: 'Steam Rice', type: 'steam', description: 'Steam-processed Pusa variety for excellent cooking properties and durability.', image: pusaSteam, brands: ['Tirupati', 'Mannat'] }
+    ]
+  },
+  {
+    id: 'traditional-basmati',
+    title: 'Traditional Basmati Rice',
+    subtitle: 'The Original Heritage',
+    description: 'The ancient and original form of Basmati rice, prized for its unparalleled natural scent and exquisite flavor.',
+    image: tradRaw,
+    subVarieties: [
+      { name: 'White Sella', type: 'white', description: 'Parboiled traditional Basmati, bridging heritage aroma with practical, non-sticky cooking.', image: tradWhite, brands: ['Tirupati'] },
+      { name: 'Raw Rice', type: 'raw', description: 'Pure, unprocessed traditional Basmati. The truest expression of indigenous Basmati heritage.', image: tradRaw, brands: ['Tirupati', 'Mannat'] }
+    ]
+  }
+];
+
+const nonBasmatiVarieties: Variety[] = [
+  {
+    id: 'sona-masoori',
+    title: 'Sona Masoori Rice',
+    subtitle: 'Light & Nutrient-Rich',
+    description: 'A lightweight, medium-grain rice. Low in starch and popular in South Indian cuisine for its ease of digestion. Perfect for daily meals.',
+    image: sonaMasoori,
+    subVarieties: [
+      { name: 'Raw Rice', type: 'raw', description: 'Pure Sona Masoori in its natural form. Light and easy to digest.', image: sonaMasoori, brands: ['Tirupati'] },
+      { name: 'Steam Rice', type: 'steam', description: 'Steam-processed for better texture and longer shelf life.', image: sonaMasoori, brands: ['Tirupati'] }
+    ]
+  },
+  {
+    id: 'pr-1114',
+    title: 'PR 11/14 Rice',
+    subtitle: 'Versatile Long Grain',
+    description: 'A popular high-yielding non-Basmati variety known for its long grains and excellent cooking properties.',
+    image: pr1114White,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Parboiled golden PR 11/14 variety holding good nutritional value and firm texture.', image: pr1114Gold, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'Parboiled white PR 11/14 variety, providing clean grains that cook beautifully.', image: pr1114White, brands: ['Tirupati'] }
+    ]
+  },
+  {
+    id: 'sugandha',
+    title: 'Sugandha Rice',
+    subtitle: 'Distinctive Aroma',
+    description: 'Living up to its name "Fragrant", this variety offers distinct aroma and long grains at a very affordable price.',
+    image: sugandhaWhite,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Golden parboiled Sugandha rice combining affordability, nutrition, and pleasant aroma.', image: sugandhaGold, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'White parboiled Sugandha rice for an elegant aesthetic and straightforward cooking.', image: sugandhaWhite, brands: ['Tirupati'] }
+    ]
+  },
+  {
+    id: 'sharbati',
+    title: 'Sharbati Rice',
+    subtitle: 'Sweet & Aromatic',
+    description: 'A pocket-friendly aromatic rice with good grain length and slight sweetness. Excellent alternative to premium Basmati.',
+    image: sharbatiWhite,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: 'Parboiled golden Sharbati offering a cost-effective, nutritious option with good grain separation.', image: sharbatiGold, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: 'Parboiled white Sharbati rice. Visually appealing with a mild, delightful aroma.', image: sharbatiWhite, brands: ['Tirupati'] }
+    ]
+  }
+];
 
 const Products = () => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -22,73 +181,105 @@ const Products = () => {
   const basmatiInView = useInView(basmatiRef, { once: true, margin: '-100px' });
   const nonBasmatiInView = useInView(nonBasmatiRef, { once: true, margin: '-100px' });
 
-  const basmatiVarieties = [
-    {
-      title: '1121 steam rice',
-      description: 'Known as the world’s longest grain, typically 8.35mm. Cooks into fluffy, separate grains perfect for Biryani.',
-      image: steam1121
-    },
-    {
-      title: '1509 basmati golden sella rice',
-      description: 'A premium variety with long slender grains and excellent aroma, slightly shorter cooking time than 1121.',
-      image: goldenSella1509
-    },
-    {
-      title: '1401 golden sella',
-      description: 'An early-maturing aromatic variety with a soft texture and superior taste, ideal for everyday premium meals.',
-      image: goldenSella1401
-    },
-    {
-      title: 'Traditional basmati white sella',
-      description: 'The authentic heritage grain with the richest aroma and sweet taste, defining the true essence of Basmati.',
-      image: traditionalBasmati
-    }
-  ];
+  const renderVarietySection = (variety: Variety) => {
+    return (
+      <motion.div 
+        key={variety.id}
+        className="mb-20 last:mb-0"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 mb-10 items-center">
+          <div className="md:w-2/5 w-full">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+              <FadeInImage 
+                src={variety.image} 
+                alt={variety.title}
+                className="w-full h-64 md:h-80 object-contain"
+                containerClassName="w-full h-64 md:h-80"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <span className="text-gold-600 text-xs font-bold tracking-widest uppercase mb-1 block">{variety.subtitle}</span>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-stone-900">{variety.title}</h3>
+              </div>
+            </div>
+          </div>
+          <div className="md:w-3/5 w-full flex flex-col justify-center">
+            <p className="text-stone-600 text-lg md:text-xl leading-relaxed">{variety.description}</p>
+          </div>
+        </div>
 
-  const nonBasmatiVarieties = [
-    {
-      title: 'PR 11 / PR 14 Rice',
-      description: 'Long grain non-basmati varieties that are non-sticky and fluffy, widely used in Indian households.'
-    },
-    {
-      title: 'Sharbati white sella rice',
-      description: 'A pocket-friendly aromatic rice with good grain length, serving as an excellent alternative to Basmati.',
-      image: sharbatiRice
-    },
-    {
-      title: 'Sugandha white sella',
-      description: 'Living up to its name "Fragrant", this variety offers distinct aroma and long grains at an affordable price.',
-      image: sugandhaRice
-    },
-    {
-      title: 'Sona masoori rice',
-      description: 'A lightweight, medium-grain rice. Low in starch and popular in South Indian cuisine for its ease of digestion.',
-      image: sonaMasoori
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+        {variety.subVarieties.length > 0 && (
+          <div className="bg-white rounded-3xl p-6 md:p-10 shadow-lg border border-stone-100">
+            <div className="mb-6">
+              <h4 className="text-xl font-serif font-bold text-stone-900 mb-2 flex items-center gap-2">
+                <span className="w-2 h-8 bg-[#005e2a] rounded-full"></span>
+                Available Variants
+              </h4>
+              <p className="text-stone-500 text-sm">Choose from our selection of processing types</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {variety.subVarieties.map((item, subIdx) => {
+                const colors = typeColors[item.type];
+                return (
+                  <Link
+                    to="/contact"
+                    key={subIdx}
+                    className={`block h-full group ${colors.bg} rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-2 ${colors.border} hover:border-[#005e2a]/30`}
+                  >
+                    <div className="relative h-40 overflow-hidden bg-white">
+                      <FadeInImage
+                        src={item.image}
+                        alt={`${variety.title} - ${item.name}`}
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                        containerClassName="w-full h-full"
+                      />
+                      <div className={`absolute top-3 left-3 ${colors.badge} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md`}>
+                        {item.type}
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h5 className={`text-base font-serif font-bold ${colors.text} mb-2 group-hover:${colors.accent} transition-colors`}>
+                        {item.name}
+                      </h5>
+                      <p className="text-stone-500 text-xs leading-relaxed mb-3 line-clamp-2">
+                        {item.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.brands.map((brand, brandIdx) => (
+                          <span 
+                            key={brandIdx}
+                            className="text-[10px] font-medium bg-white px-2 py-1 rounded-md text-stone-600 border border-stone-200"
+                          >
+                            {brand}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </motion.div>
+    );
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
-      {/* Header */}
-      <div ref={headerRef} className="pt-36 md:pt-44 pb-12 md:pb-20 text-center px-6 bg-rice-50">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-stone-100 via-white to-stone-50">
+      <div ref={headerRef} className="pt-36 md:pt-44 pb-16 text-center px-6 bg-[#005e2a] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-gold-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-60 h-60 bg-gold-400 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-4xl mx-auto relative z-10">
           <motion.span
-            className="text-gold-600 tracking-widest uppercase text-xs font-bold mb-3 block"
+            className="text-gold-400 tracking-widest uppercase text-xs font-bold mb-3 block"
             initial={{ opacity: 0, y: 20 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -96,7 +287,7 @@ const Products = () => {
             Excellence in Every Grain
           </motion.span>
           <motion.h1
-            className="text-4xl md:text-7xl font-serif text-stone-900 mb-6"
+            className="text-4xl md:text-7xl font-serif text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -104,136 +295,71 @@ const Products = () => {
             Our Product Collection
           </motion.h1>
           <motion.p
-            className="text-stone-600 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto"
+            className="text-stone-200 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From the fertile fields of India to your kitchen, we bring you the finest selection of Basmati and Non-Basmati rice, cultivated with care and processed to perfection.
+            Explore our comprehensive range of premium Basmati and Non-Basmati varieties with all sub-products visible
           </motion.p>
         </div>
       </div>
 
-      {/* Organic Banner */}
-      <motion.div
-        className="bg-[#005e2a] text-white py-6 px-6 text-center shadow-lg relative overflow-hidden"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-      >
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <Leaf className="absolute -top-4 -left-4 w-24 h-24 rotate-45" />
-          <Leaf className="absolute bottom-[-10px] right-[-10px] w-32 h-32 -rotate-12" />
+      <div className="bg-[#005e2a] text-white py-5 px-6 text-center shadow-lg">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+          <span className="flex items-center gap-2">
+            <Star className="text-gold-400 w-4 h-4" /> 10+ Varieties
+          </span>
+          <span className="flex items-center gap-2">
+            <Leaf className="text-gold-400 w-4 h-4" /> 25+ Sub-Products
+          </span>
+          <span className="flex items-center gap-2">
+            <ChevronDown className="text-gold-400 w-4 h-4" /> Raw, Steam, White & Golden Sella
+          </span>
         </div>
+      </div>
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
-          <Leaf className="text-gold-400 w-6 h-6 md:w-8 md:h-8" />
-          <p className="text-lg md:text-xl font-serif font-medium">
-            Looking for <span className="text-gold-400">Organic</span> or <span className="text-gold-400">Pesticide-Free</span> options?
-            <span className="block md:inline text-base font-sans font-light opacity-90 mt-1 md:mt-0 md:ml-3">
-              We can arrange specific cultivation requirements upon request.
-            </span>
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Basmati Section */}
       <section ref={basmatiRef} className="py-16 md:py-24 max-w-7xl mx-auto px-6">
         <motion.div
-          className="flex items-end justify-between mb-12 border-b border-stone-200 pb-6"
+          className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={basmatiInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
           <div>
-            <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Basmati Rice</h2>
-            <p className="text-stone-500">The Queen of Fragrance</p>
+            <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Basmati Rice Varieties</h2>
+            <p className="text-stone-500">Premium aromatic long-grain rice</p>
           </div>
           <Star className="hidden md:block text-gold-500 w-8 h-8" />
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={basmatiInView ? "show" : "hidden"}
-        >
-          {basmatiVarieties.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 cursor-pointer"
-            >
-              <Link to="/contact" className="block">
-                <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
-                  <FadeInImage
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                    containerClassName="w-full h-full bg-stone-100"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
-                  <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div>
+          {basmatiVarieties.map((variety) => renderVarietySection(variety))}
+        </div>
       </section>
 
-      {/* Non-Basmati Section */}
-      <section ref={nonBasmatiRef} className="py-16 md:py-24 bg-white border-t border-stone-100">
+      <section ref={nonBasmatiRef} className="py-16 md:py-24 bg-white border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="flex items-end justify-between mb-12 border-b border-stone-200 pb-6"
+            className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={nonBasmatiInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             <div>
-              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Non-Basmati Rice</h2>
-              <p className="text-stone-500">Everyday Essentials</p>
+              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Non-Basmati Rice Varieties</h2>
+              <p className="text-stone-500">Everyday premium essentials</p>
             </div>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate={nonBasmatiInView ? "show" : "hidden"}
-          >
-            {nonBasmatiVarieties.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                className="group bg-stone-50 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer"
-              >
-                <Link to="/contact" className="block">
-                  <div className="h-64 overflow-hidden relative p-4 bg-stone-100">
-                    <FadeInImage
-                      src={item.image || goldRiceImage}
-                      alt={item.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
-                      containerClassName="w-full h-full bg-stone-100"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif font-bold text-stone-900 mb-3 group-hover:text-gold-600 transition-colors">{item.title}</h3>
-                    <p className="text-stone-600 text-sm leading-relaxed">{item.description}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div>
+            {nonBasmatiVarieties.map((variety) => renderVarietySection(variety))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
       <motion.section
-        className="py-20 bg-stone-900 text-white text-center"
+        className="py-20 bg-white border-t border-stone-200 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -242,7 +368,7 @@ const Products = () => {
         <div className="max-w-4xl mx-auto px-6">
           <Leaf className="w-10 h-10 text-gold-500 mx-auto mb-6" />
           <motion.h2
-            className="text-3xl md:text-5xl font-serif mb-6"
+            className="text-3xl md:text-5xl font-serif text-stone-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -251,7 +377,7 @@ const Products = () => {
             Ready to Order?
           </motion.h2>
           <motion.p
-            className="text-stone-400 mb-8 text-lg"
+            className="text-stone-600 mb-8 text-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -261,7 +387,7 @@ const Products = () => {
           </motion.p>
           <motion.a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-white font-medium tracking-widest uppercase hover:bg-gold-600 transition-colors duration-300 rounded-sm"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-stone-900 font-bold tracking-widest uppercase hover:bg-gold-400 transition-colors duration-300 rounded-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -15,7 +15,7 @@ const FadeInImage: React.FC<FadeInImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className={cn("overflow-hidden bg-stone-200", containerClassName)}>
+    <div className={cn("overflow-hidden !bg-white", containerClassName)}>
       <img
         src={src}
         alt={alt}

@@ -1,1 +1,0 @@
-const s="/assets/1509-basmati-golden-sella-rice-Dx4dzDrf.jpg",a="/assets/Pusa-basmati-golden-sella-CpcSoZeR.jpg",l="/assets/Sharbati-golden-sella-D2p9pZ8K.jpg",e="/assets/Sugandha-golden-sella-C-Xy7IHy.jpg";export{a,l as b,e as c,s as g};
