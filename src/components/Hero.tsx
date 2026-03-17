@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const heroVideo = "https://video.gumlet.io/67489ec0dad6bb7514b3bf09/69b10858915a0b1869c574b5/download.mp4";
+const heroVideo = "https://video.gumlet.io/67489ec0dad6bb7514b3bf09/69b93808bf83f6c3361944b9/download.mp4";
 
 // Floating grain particles component
 const FloatingGrains = () => {

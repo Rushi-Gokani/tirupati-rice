@@ -17,7 +17,7 @@ const BrandVideo = () => {
           className="w-full h-full object-cover opacity-70"
         >
           <source
-            src="https://video.gumlet.io/67489ec0dad6bb7514b3bf09/69b11e19915a0b1869c76548/download.mp4"
+            src="https://video.gumlet.io/67489ec0dad6bb7514b3bf09/69b93a85c8f901eb7545421f/download.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
