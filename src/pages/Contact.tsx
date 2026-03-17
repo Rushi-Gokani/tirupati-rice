@@ -58,7 +58,7 @@ const Contact = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="pt-20 md:pt-24 pb-16 md:pb-20 min-h-screen bg-rice-50">
+    <div ref={sectionRef} className="pt-32 md:pt-40 pb-16 md:pb-20 min-h-screen bg-rice-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div 

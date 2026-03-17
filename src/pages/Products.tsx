@@ -214,14 +214,6 @@ const Products = () => {
 
         {variety.subVarieties.length > 0 && (
           <div className="bg-white rounded-3xl p-6 md:p-10 shadow-lg border border-stone-100">
-            <div className="mb-6">
-              <h4 className="text-xl font-serif font-bold text-stone-900 mb-2 flex items-center gap-2">
-                <span className="w-2 h-8 bg-[#005e2a] rounded-full"></span>
-                Available Variants
-              </h4>
-              <p className="text-stone-500 text-sm">Choose from our selection of processing types</p>
-            </div>
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {variety.subVarieties.map((item, subIdx) => {
                 const colors = typeColors[item.type];
