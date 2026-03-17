@@ -51,8 +51,7 @@ const SignatureCollection = () => {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <FadeInImage
-              src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop"
-              alt="Tirupati Royal Basmati Rice"
+              src="images/gettyimages-653903170-2048x2048.jpg"     alt="Tirupati Royal Basmati Rice"
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
             />
