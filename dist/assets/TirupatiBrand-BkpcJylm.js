@@ -1,4 +1,4 @@
-import{c as n,j as e,m as t,L as o}from"./index-CpWGmQTl.js";import{F as l}from"./FadeInImage-BBCkR9Ha.js";import{w as c,a as d,b as h}from"./Pusa-basmati-white-sella-CS7r5_iF.js";import{a as m,b as g,c as u,w as x}from"./PR1114-white-sella-CWAdaa8w.js";import{n as p,P as f}from"./TIRUPATI 1121 PREMIUM BASMATI RICE - file-2-BBCJ6Ogv.js";import{C as y}from"./circle-check-big-FUNdiRWk.js";/**
+import{c as n,j as e,m as t,L as o}from"./index-CBwnKCo4.js";import{F as l}from"./FadeInImage-DTYh1RzY.js";import{w as c,a as d,b as h}from"./Pusa-basmati-white-sella-CS7r5_iF.js";import{a as m,b as g,c as u,w as x}from"./PR1114-white-sella-CWAdaa8w.js";import{n as p,P as f}from"./TIRUPATI 1121 PREMIUM BASMATI RICE - file-2-BsSVTWLH.js";import{C as y}from"./circle-check-big-D63Q299j.js";/**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.

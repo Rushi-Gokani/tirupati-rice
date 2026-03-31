@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// Unused imports removed
 
-const heroVideo = "https://video.gumlet.io/67489ec0dad6bb7514b3bf09/69b93808bf83f6c3361944b9/download.mp4";
+const heroVideo = "https://video.gumlet.io/69cb96c9b92f8b65888a40fe/69cb98f8b92f8b65888a8e7d/main.mp4";
 
 // Floating grain particles component
 const FloatingGrains = () => {
@@ -98,36 +98,6 @@ const Hero = () => {
         style={{ opacity }}
         className="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-6 max-w-5xl mx-auto text-white z-10"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.3em] uppercase bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-            Exporting Quality Worldwide
-          </span>
-          <h1 className="text-5xl md:text-8xl font-serif font-bold mb-6 tracking-tight leading-none">
-            Purest <span className="text-gold-500">Basmati</span> <br />
-            Legacy
-          </h1>
-          <p className="text-lg md:text-2xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-            From the fertile foothills of the Himalayas to dinner tables across the globe. Experience the unmatched aroma and taste of aged perfection.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/products"
-              className="px-8 py-4 bg-gold-600 text-white rounded-full font-bold uppercase tracking-widest text-sm hover:bg-gold-500 transition-all shadow-xl hover:shadow-gold-600/20"
-            >
-              Explore Products
-            </Link>
-            <Link
-              to="/contact"
-              className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white/20 transition-all"
-            >
-              Contact Exports
-            </Link>
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Hero Features / Key Highlights */}
