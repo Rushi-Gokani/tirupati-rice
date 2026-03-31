@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Leaf, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInImage from '../components/ui/FadeInImage';
+import ExpandableText from '../components/ui/ExpandableText';
 
 import steam1121 from '../../images/rice-1121-steam.jpg';
 import raw1121 from '../../images/rice-1121-raw.jpg';
@@ -295,9 +296,11 @@ const Products = () => {
                       <h5 className={`text-base font-serif font-bold ${colors.text} mb-2 group-hover:${colors.accent} transition-colors`}>
                         {item.name}
                       </h5>
-                      <p className="text-stone-600 text-[11px] leading-relaxed mb-4 text-left">
-                        {item.description}
-                      </p>
+                      <ExpandableText
+                        text={item.description}
+                        maxChars={60}
+                        className="text-stone-600 text-[11px] leading-relaxed text-left"
+                      />
 
                       <div className="mb-4 text-left w-full">
                         <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>

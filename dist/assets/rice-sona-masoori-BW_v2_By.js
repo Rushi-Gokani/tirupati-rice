@@ -1,1 +1,0 @@
-const s="/assets/1121_lemon_sella-C8T6ZcXm.jpg",a="/assets/1718-golden-sella-B5QyShUy.jpg",e="/assets/rice-1509-steam-BhEzoPKt.jpg",o="/assets/rice-sona-masoori-CshzPXPE.jpg";export{o as a,s as l,a as n,e as s};

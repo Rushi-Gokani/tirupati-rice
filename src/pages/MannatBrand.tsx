@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Utensils, Heart } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
+import ExpandableText from '../components/ui/ExpandableText';
 
 import gold1121 from '../../images/mannat-gold/1121-golden-sella.jpg';
 import gold1401 from '../../images/mannat-gold/1401-golden-sella.jpg';
@@ -185,7 +186,11 @@ const MannatBrand = () => {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-stone-800 mb-2 flex items-center">{product.title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed flex-grow">{product.desc}</p>
+                <ExpandableText
+                  text={product.desc}
+                  maxChars={80}
+                  className="text-stone-600 text-sm leading-relaxed"
+                />
 
                 <div className="mt-4 pt-4 border-t border-stone-100">
                   <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>

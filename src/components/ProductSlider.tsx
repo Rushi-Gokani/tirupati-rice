@@ -4,10 +4,10 @@ import { ChevronLeft, ChevronRight, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInImage from './ui/FadeInImage';
 
-import tirupatiPremium from '../../images/tirupati new/TIRUPATI 1121 PREMIUM BASMATI RICE - file-2.png';
+import tirupatiPremium from '../../images/tirupati new/6.png';
 import mannatGold from '../../images/mannat-gold/1121-golden-sella.jpg';
-import lemon1121 from '../../images/lemon/1121_lemon_sella.jpg';
-import rice1718Golden from '../../images/Mannat new/1718_golden_sella.jpg';
+import lemon1121 from '../../images/tirupati new/4.png';
+import rice1718Golden from '../../images/tirupati new/3.png';
 
 const products = [
     {

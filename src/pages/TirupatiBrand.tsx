@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, CheckCircle, Package } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
+import ExpandableText from '../components/ui/ExpandableText';
 
 import whiteSella1121 from '../../images/tirupati-white/1121-white-sella.jpg';
 import whiteSella1401 from '../../images/tirupati-white/1401-white-sella.jpg';
@@ -11,31 +12,31 @@ import whiteSellaSharbati from '../../images/tirupati-white/Sharbati-white-sella
 import whiteSellaSugandha from '../../images/tirupati-white/Sugandha-white-sella.jpg';
 import whiteSellaTraditional from '../../images/tirupati-white/Traditional-basmati-white-sella.jpg';
 import tirupatiLogo from '../../images/2.png';
-import newTirupati1121Premium from '../../images/tirupati new/TIRUPATI 1121 PREMIUM BASMATI RICE - file-2.png';
-import newTirupati1121Raw from '../../images/tirupati new/TIRUPATI 1121 RAW CLASSIC RICE.png';
-import newTirupati1121GoldenSella from '../../images/tirupati new/TIRUPATI 1121 XXXL GOLDEN SELLA- file.png';
-import newTirupatiBiryaniSpecial from '../../images/tirupati new/TIRUPATI PREMIUM BIRYANI SPECIAL RICE- file.png';
+import tirupatiPremiumBag from '../../images/tirupati new/6.png';
+import tirupatiRawBag from '../../images/tirupati new/5.png';
+import tirupatiXXXLBag from '../../images/tirupati new/4.png';
+import tirupatiBiryaniBag from '../../images/tirupati new/3.png';
 
 const tirupatiProducts = [
   {
     title: "TIRUPATI 1121 PREMIUM BASMATI RICE",
     desc: "Indulge in the true essence of premium basmati with Tirupati 1121 Premium, where every grain reflects purity, length, and natural aroma. Carefully aged and processed, this exquisite rice transforms into long, fluffy, non-sticky grains that elevate everyday meals into a fine dining experience. Its rich fragrance and delicate texture make it ideal for a variety of dishes, from simple home-cooked meals to special preparations. Naturally low in fat, cholesterol-free, and easy to digest, it provides sustained energy while being gentle on the stomach—making it a wholesome choice for daily nourishment.",
-    image: newTirupati1121Premium
+    image: tirupatiPremiumBag
   },
   {
     title: "TIRUPATI 1121 RAW CLASSIC RICE",
     desc: "Rooted in tradition and authenticity, Tirupati 1121 Raw Classic Rice offers a natural taste and firm texture that complements everyday cooking. Its subtly aromatic grains cook evenly, remaining separate and light, perfect for those who appreciate simplicity with quality. This rice serves as a reliable source of energy through its rich carbohydrate content, while its low sodium levels and easy digestibility make it suitable for regular consumption. A true staple that brings comfort, purity, and balance to every meal.",
-    image: newTirupati1121Raw
+    image: tirupatiRawBag
   },
   {
     title: "TIRUPATI 1121 XXXL GOLDEN SELLA",
     desc: "Tirupati 1121 XXXL Golden Sella stands out with its distinctive golden hue and superior strength, achieved through a meticulous parboiling process. This technique not only enhances the grain’s firmness and non-sticky texture but also helps retain essential nutrients. Ideal for large gatherings and rich culinary preparations, it delivers consistent quality and exceptional taste. With improved nutrient retention, a relatively lower glycemic impact, and long-lasting energy release, it supports both flavor and well-being in every serving.",
-    image: newTirupati1121GoldenSella
+    image: tirupatiXXXLBag
   },
   {
     title: "TIRUPATI PREMIUM BIRYANI SPECIAL RICE",
     desc: "Crafted for culinary excellence, Tirupati Premium Biryani Special Rice is designed to bring out the finest flavors in every festive dish. With its extra-long grains, remarkable elongation, and captivating aroma, it ensures that every serving of biryani or pulao is a masterpiece. The grains remain perfectly separate and fluffy, enhancing both presentation and taste. Alongside its indulgent appeal, it is naturally gluten-free, low in saturated fat, and easy to digest, offering a delightful combination of taste and nourishment.",
-    image: newTirupatiBiryaniSpecial
+    image: tirupatiBiryaniBag
   },
   {
     title: "1121 white sella",
@@ -182,7 +183,11 @@ const TirupatiBrand = () => {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-stone-800 mb-2 flex items-center">{product.title}</h3>
-                <p className="text-stone-600 text-sm leading-relaxed flex-grow">{product.desc}</p>
+                <ExpandableText
+                  text={product.desc}
+                  maxChars={80}
+                  className="text-stone-600 text-sm leading-relaxed"
+                />
 
                 <div className="mt-4 pt-4 border-t border-stone-100">
                   <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>

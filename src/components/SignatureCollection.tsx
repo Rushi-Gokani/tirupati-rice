@@ -86,7 +86,7 @@ const SignatureCollection = () => {
                 <img
                   src={tirupatiLogo}
                   alt="Tirupati Brand"
-                  className="h-16 md:h-24 w-auto object-contain"
+                  className="h-20 md:h-32 w-auto object-contain"
                 />
               </motion.div>
               <motion.p
@@ -171,7 +171,7 @@ const SignatureCollection = () => {
                 <img
                   src={mannatLogo}
                   alt="Mannat Brand"
-                  className="h-16 md:h-24 w-auto object-contain"
+                  className="h-20 md:h-32 w-auto object-contain"
                 />
               </motion.div>
               <motion.p
