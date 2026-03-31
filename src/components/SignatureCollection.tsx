@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import FadeInImage from './ui/FadeInImage';
 import royalBasmatiImg from '../../images/gettyimages-653903170-2048x2048.jpg';
+import mannatLogo from '../../images/TRAN MANNAT.png';
+import tirupatiLogo from '../../images/2.png';
 
 const SignatureCollection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -75,14 +77,18 @@ const SignatureCollection = () => {
               >
                 Premium Selection
               </motion.span>
-              <motion.h3
-                className="text-3xl md:text-6xl font-serif mb-4 md:mb-6"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex justify-center mb-4 md:mb-6"
               >
-                Tirupati
-              </motion.h3>
+                <img
+                  src={tirupatiLogo}
+                  alt="Tirupati Brand"
+                  className="h-16 md:h-24 w-auto object-contain"
+                />
+              </motion.div>
               <motion.p
                 className="text-stone-200 mb-4 md:mb-6 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
                 initial={{ opacity: 0 }}
@@ -156,14 +162,18 @@ const SignatureCollection = () => {
               >
                 Everyday Premium
               </motion.span>
-              <motion.h3
-                className="text-3xl md:text-6xl font-serif mb-4 md:mb-6"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.7 }}
+                className="flex justify-center mb-4 md:mb-6"
               >
-                Mannat
-              </motion.h3>
+                <img
+                  src={mannatLogo}
+                  alt="Mannat Brand"
+                  className="h-16 md:h-24 w-auto object-contain"
+                />
+              </motion.div>
               <motion.p
                 className="text-stone-200 mb-4 md:mb-6 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
                 initial={{ opacity: 0 }}

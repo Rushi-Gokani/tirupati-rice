@@ -11,6 +11,7 @@ import goldPR1114 from '../../images/mannat-gold/PR-1114-golden-sella.jpg';
 import goldPusa from '../../images/mannat-gold/Pusa-basmati-golden-sella.jpg';
 import goldSharbati from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
 import goldSugandha from '../../images/mannat-gold/Sugandha-golden-sella.jpg';
+import mannatLogo from '../../images/TRAN MANNAT.png';
 import mannatClassic from '../../images/Mannat new/Mannati Rice 1121 30kg (CLASSIC).png';
 import mannatGoldenSella from '../../images/Mannat new/Mannati Rice 1121 30kg (GOLDEN SELLA).png';
 import mannatPremium from '../../images/Mannat new/Mannati Rice 1121 30kg (PREMIUM).png';
@@ -92,12 +93,16 @@ const MannatBrand = () => {
         >
           Everyday Premium
         </motion.span>
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-serif text-stone-900 mb-6 mt-14"
+          className="flex justify-center mb-6 mt-10"
         >
-          Mannat
-        </motion.h1>
+          <img
+            src={mannatLogo}
+            alt="Mannat Brand Logo"
+            className="w-auto h-24 md:h-32 lg:h-40 object-contain drop-shadow-sm"
+          />
+        </motion.div>
         <motion.p
           className="text-stone-600 max-w-2xl mx-auto text-lg leading-relaxed"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}

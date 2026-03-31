@@ -10,6 +10,7 @@ import whiteSellaPusa from '../../images/tirupati-white/Pusa-basmati-white-sella
 import whiteSellaSharbati from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
 import whiteSellaSugandha from '../../images/tirupati-white/Sugandha-white-sella.jpg';
 import whiteSellaTraditional from '../../images/tirupati-white/Traditional-basmati-white-sella.jpg';
+import tirupatiLogo from '../../images/2.png';
 import newTirupati1121Premium from '../../images/tirupati new/TIRUPATI 1121 PREMIUM BASMATI RICE - file-2.png';
 import newTirupati1121Raw from '../../images/tirupati new/TIRUPATI 1121 RAW CLASSIC RICE.png';
 import newTirupati1121GoldenSella from '../../images/tirupati new/TIRUPATI 1121 XXXL GOLDEN SELLA- file.png';
@@ -90,12 +91,16 @@ const TirupatiBrand = () => {
         >
           Premium Selection
         </motion.span>
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-serif text-stone-900 mb-6 mt-14"
+          className="flex justify-center mb-6 mt-10"
         >
-          Tirupati
-        </motion.h1>
+          <img
+            src={tirupatiLogo}
+            alt="Tirupati Brand Logo"
+            className="w-auto h-24 md:h-32 lg:h-40 object-contain drop-shadow-sm"
+          />
+        </motion.div>
         <motion.p
           className="text-stone-600 max-w-2xl mx-auto text-lg leading-relaxed"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
