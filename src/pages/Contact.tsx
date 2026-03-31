@@ -14,13 +14,13 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset after showing success
     setTimeout(() => {
       setIsSubmitted(false);
@@ -34,19 +34,25 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Corporate Office',
-      content: '123 Harvest Lane, Golden Fields\nCalifornia 90210, USA',
+      content: 'Chopri Road, Village Kurak, Karnal,\nTaraori – 132116, Haryana, India',
       delay: 0,
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567\nMon-Fri, 9am - 6pm PST',
+      content: ' +91 9896155542',
+      delay: 0.1,
+    },
+     {
+      icon: Phone,
+      title: 'WhatsApp',
+      content: ' +91  9896295083 ',
       delay: 0.1,
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@tirupati-rice.com\nexports@tirupati-rice.com',
+      content: ' info@tirupatibasmatiexports.com',
       delay: 0.2,
     },
   ];
@@ -61,7 +67,7 @@ const Contact = () => {
     <div ref={sectionRef} className="pt-32 md:pt-40 pb-16 md:pb-20 min-h-screen bg-rice-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -75,7 +81,7 @@ const Contact = () => {
           >
             Get in Touch
           </motion.span>
-          <motion.h1 
+          <motion.h1
             className="text-3xl md:text-5xl font-serif text-stone-900 mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -83,7 +89,7 @@ const Contact = () => {
           >
             Partner With Us
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-stone-600 max-w-2xl mx-auto text-sm md:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -105,7 +111,7 @@ const Contact = () => {
                 transition={{ duration: 0.6, delay: 0.3 + info.delay }}
                 whileHover={{ x: 5 }}
               >
-                <motion.div 
+                <motion.div
                   className="bg-rice-100 p-2 md:p-3 rounded-full text-gold-600 shrink-0 group-hover:bg-gold-500 group-hover:text-white transition-colors duration-300"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 400 }}
@@ -131,7 +137,7 @@ const Contact = () => {
             <motion.div
               className="absolute inset-0 bg-stone-900 z-20 flex flex-col items-center justify-center text-white"
               initial={{ opacity: 0, pointerEvents: 'none' }}
-              animate={{ 
+              animate={{
                 opacity: isSubmitted ? 1 : 0,
                 pointerEvents: isSubmitted ? 'auto' : 'none'
               }}
@@ -193,7 +199,7 @@ const Contact = () => {
                   </motion.div>
                 ))}
               </div>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}

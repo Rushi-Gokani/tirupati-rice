@@ -146,7 +146,7 @@ const Footer = () => {
               transition={{ type: 'spring', stiffness: 400 }}
             >
               <MapPin size={18} className="text-gold-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span className="group-hover:text-white transition-colors">123 Harvest Lane, Golden Fields,<br />California 90210</span>
+              <span className="group-hover:text-white transition-colors">Chopri Road, Village Kurak, Karnal,<br />Taraori – 132116, Haryana, India</span>
             </motion.li>
             <motion.li
               className="flex items-center space-x-3 group"

@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import FadeInImage from './ui/FadeInImage';
+import royalBasmatiImg from '../../images/gettyimages-653903170-2048x2048.jpg';
 
 const SignatureCollection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,7 +52,7 @@ const SignatureCollection = () => {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <FadeInImage
-              src="images/gettyimages-653903170-2048x2048.jpg"     alt="Tirupati Royal Basmati Rice"
+              src={royalBasmatiImg} alt="Tirupati Royal Basmati Rice"
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
             />
@@ -83,12 +84,20 @@ const SignatureCollection = () => {
                 Tirupati
               </motion.h3>
               <motion.p
-                className="text-stone-200 mb-6 md:mb-10 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
+                className="text-stone-200 mb-4 md:mb-6 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
                 The finest aged Basmati. Extra-long grains that elongate upon cooking, offering an aromatic scent that defines luxury dining.
+              </motion.p>
+              <motion.p
+                className="text-gold-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.8 }}
+              >
+                Available Sizes: 1kg, 5kg, 10kg, 25kg & 30kg
               </motion.p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -156,12 +165,20 @@ const SignatureCollection = () => {
                 Mannat
               </motion.h3>
               <motion.p
-                className="text-stone-200 mb-6 md:mb-10 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
+                className="text-stone-200 mb-4 md:mb-6 text-base md:text-lg font-light leading-relaxed line-clamp-3 md:line-clamp-none"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 Premium parboiled rice. Golden hues, rich nutritional value, and versatile texture perfect for daily global cuisine.
+              </motion.p>
+              <motion.p
+                className="text-gold-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-6 md:mb-8"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.9 }}
+              >
+                Available Sizes: 1kg, 5kg, 10kg, 25kg & 30kg
               </motion.p>
               <motion.div
                 whileHover={{ scale: 1.05 }}

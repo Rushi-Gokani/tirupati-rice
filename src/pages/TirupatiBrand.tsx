@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Sparkles, CheckCircle, Package } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 
@@ -9,8 +10,32 @@ import whiteSellaPusa from '../../images/tirupati-white/Pusa-basmati-white-sella
 import whiteSellaSharbati from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
 import whiteSellaSugandha from '../../images/tirupati-white/Sugandha-white-sella.jpg';
 import whiteSellaTraditional from '../../images/tirupati-white/Traditional-basmati-white-sella.jpg';
+import newTirupati1121Premium from '../../images/tirupati new/TIRUPATI 1121 PREMIUM BASMATI RICE - file-2.png';
+import newTirupati1121Raw from '../../images/tirupati new/TIRUPATI 1121 RAW CLASSIC RICE.png';
+import newTirupati1121GoldenSella from '../../images/tirupati new/TIRUPATI 1121 XXXL GOLDEN SELLA- file.png';
+import newTirupatiBiryaniSpecial from '../../images/tirupati new/TIRUPATI PREMIUM BIRYANI SPECIAL RICE- file.png';
 
 const tirupatiProducts = [
+  {
+    title: "TIRUPATI 1121 PREMIUM BASMATI RICE",
+    desc: "Indulge in the true essence of premium basmati with Tirupati 1121 Premium, where every grain reflects purity, length, and natural aroma. Carefully aged and processed, this exquisite rice transforms into long, fluffy, non-sticky grains that elevate everyday meals into a fine dining experience. Its rich fragrance and delicate texture make it ideal for a variety of dishes, from simple home-cooked meals to special preparations. Naturally low in fat, cholesterol-free, and easy to digest, it provides sustained energy while being gentle on the stomach—making it a wholesome choice for daily nourishment.",
+    image: newTirupati1121Premium
+  },
+  {
+    title: "TIRUPATI 1121 RAW CLASSIC RICE",
+    desc: "Rooted in tradition and authenticity, Tirupati 1121 Raw Classic Rice offers a natural taste and firm texture that complements everyday cooking. Its subtly aromatic grains cook evenly, remaining separate and light, perfect for those who appreciate simplicity with quality. This rice serves as a reliable source of energy through its rich carbohydrate content, while its low sodium levels and easy digestibility make it suitable for regular consumption. A true staple that brings comfort, purity, and balance to every meal.",
+    image: newTirupati1121Raw
+  },
+  {
+    title: "TIRUPATI 1121 XXXL GOLDEN SELLA",
+    desc: "Tirupati 1121 XXXL Golden Sella stands out with its distinctive golden hue and superior strength, achieved through a meticulous parboiling process. This technique not only enhances the grain’s firmness and non-sticky texture but also helps retain essential nutrients. Ideal for large gatherings and rich culinary preparations, it delivers consistent quality and exceptional taste. With improved nutrient retention, a relatively lower glycemic impact, and long-lasting energy release, it supports both flavor and well-being in every serving.",
+    image: newTirupati1121GoldenSella
+  },
+  {
+    title: "TIRUPATI PREMIUM BIRYANI SPECIAL RICE",
+    desc: "Crafted for culinary excellence, Tirupati Premium Biryani Special Rice is designed to bring out the finest flavors in every festive dish. With its extra-long grains, remarkable elongation, and captivating aroma, it ensures that every serving of biryani or pulao is a masterpiece. The grains remain perfectly separate and fluffy, enhancing both presentation and taste. Alongside its indulgent appeal, it is naturally gluten-free, low in saturated fat, and easy to digest, offering a delightful combination of taste and nourishment.",
+    image: newTirupatiBiryaniSpecial
+  },
   {
     title: "1121 white sella",
     desc: "Everyday perfect long-grain rice with beautiful aroma.",
@@ -142,17 +167,32 @@ const TirupatiBrand = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <div className="aspect-square w-full relative overflow-hidden bg-stone-100 shrink-0 p-4">
+              <div className="aspect-square w-full relative overflow-hidden bg-white shrink-0 p-4 rounded-t-2xl">
                 <FadeInImage
                   src={product.image}
                   alt={product.title}
                   className="w-full h-full object-contain"
-                  containerClassName="w-full h-full bg-stone-100"
+                  containerClassName="w-full h-full bg-white"
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-stone-800 mb-2">{product.title}</h3>
+                <h3 className="text-xl font-bold text-stone-800 mb-2 flex items-center">{product.title}</h3>
                 <p className="text-stone-600 text-sm leading-relaxed flex-grow">{product.desc}</p>
+
+                <div className="mt-4 pt-4 border-t border-stone-100">
+                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {['1kg', '5kg', '10kg', '25kg', '30kg'].map(size => (
+                      <span key={size} className="text-[10px] bg-white px-3 py-1.5 rounded-lg border border-stone-200 text-stone-800 font-bold shadow-sm">{size}</span>
+                    ))}
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="block w-full py-4 bg-[#005e2a] text-white text-center rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#004d22] transition-all transform hover:-translate-y-1 shadow-md hover:shadow-xl active:scale-95"
+                  >
+                    Enquire Now
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

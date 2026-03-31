@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
+import ProductSlider from '../components/ProductSlider';
 import SignatureCollection from '../components/SignatureCollection';
 import Features from '../components/Features';
 import ProductCategories from '../components/ProductCategories';
@@ -45,6 +46,8 @@ const Home = () => {
         <SectionWrapper>
           <SignatureCollection />
         </SectionWrapper>
+
+        <ProductSlider />
 
         <SectionWrapper>
           <ProductCategories />

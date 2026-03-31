@@ -35,6 +35,11 @@ import sugandhaWhite from '../../images/tirupati-white/Sugandha-white-sella.jpg'
 
 import sharbatiGold from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
 import sharbatiWhite from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
+import lemon1121 from '../../images/lemon/1121_lemon_sella.jpg';
+import lemon1509 from '../../images/lemon/1509_lemon_sella.jpg';
+import new1718GoldenSella from '../../images/Mannat new/1718_golden_sella.jpg';
+import new1718Steam from '../../images/Mannat new/1718_steam.jpg';
+import new1718WhiteSella from '../../images/Mannat new/1718_white_sella.jpg';
 
 const typeColors = {
   golden: { bg: 'bg-gradient-to-br from-amber-50 to-amber-100', border: 'border-amber-200', text: 'text-amber-800', accent: 'text-amber-600', badge: 'bg-gradient-to-r from-amber-500 to-amber-600' },
@@ -122,6 +127,21 @@ const basmatiVarieties: Variety[] = [
       { name: 'White Sella', type: 'white', description: 'Parboiled traditional Basmati, bridging heritage aroma with practical, non-sticky cooking.', image: tradWhite, brands: ['Tirupati'] },
       { name: 'Raw Rice', type: 'raw', description: 'Pure, unprocessed traditional Basmati. The truest expression of indigenous Basmati heritage.', image: tradRaw, brands: ['Tirupati', 'Mannat'] }
     ]
+  },
+];
+
+const variety1718: Variety[] = [
+  {
+    id: '1718-basmati',
+    title: '1718 Basmati Rice',
+    subtitle: 'The 1718 Variety',
+    description: '1718 Basmati Rice is a breakthrough variety that combines the best properties of traditional Basmati with enhanced grain resilience and productivity. It is known for its remarkable elongation after cooking, fluffy non-sticky texture, and a rich aroma that rivals premium Basmati selections. Perfectly suited for biryani and exotic preparations.',
+    image: new1718GoldenSella,
+    subVarieties: [
+      { name: 'Golden Sella', type: 'golden', description: '', image: new1718GoldenSella, brands: ['Mannat'] },
+      { name: 'Steam Rice', type: 'steam', description: '', image: new1718Steam, brands: ['Mannat'] },
+      { name: 'White Sella', type: 'white', description: '', image: new1718WhiteSella, brands: ['Mannat'] }
+    ]
   }
 ];
 
@@ -172,6 +192,25 @@ const nonBasmatiVarieties: Variety[] = [
   }
 ];
 
+const lemonVarieties: Variety[] = [
+  {
+    id: '1121-lemon-sella',
+    title: '1121 Lemon Sella Rice',
+    subtitle: 'Golden Parboiled Excellence',
+    description: '1121 Lemon Sella Rice is a premium long-grain variety known for its distinct golden hue and exceptional nutritional value. The specialized parboiling process ensures that each grain remains separate, fluffy, and firm after cooking, making it an ideal choice for biryani, pulao, and various exotic dishes. Its unique color combined with the world-famous 1121 grain length brings a royal touch to every meal.',
+    image: lemon1121,
+    subVarieties: []
+  },
+  {
+    id: '1509-lemon-sella',
+    title: '1509 Lemon Sella Rice',
+    subtitle: 'Fragrant & Nutritious',
+    description: '1509 Lemon Sella Rice offers a perfect balance of aroma, taste, and texture. This variety undergoes a careful steaming and parboiling process that preserves natural vitamins while imparting a beautiful yellow tint to the grains. Renowned for its faster cooking time and impressive elongation, it provides a cost-effective yet premium experience for both household dining and commercial catering.',
+    image: lemon1509,
+    subVarieties: []
+  }
+];
+
 const Products = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const basmatiRef = useRef<HTMLElement>(null);
@@ -180,10 +219,14 @@ const Products = () => {
   const headerInView = useInView(headerRef, { once: true, margin: '-100px' });
   const basmatiInView = useInView(basmatiRef, { once: true, margin: '-100px' });
   const nonBasmatiInView = useInView(nonBasmatiRef, { once: true, margin: '-100px' });
+  const variety1718Ref = useRef<HTMLElement>(null);
+  const variety1718InView = useInView(variety1718Ref, { once: true, margin: '-100px' });
+  const lemonRef = useRef<HTMLElement>(null);
+  const lemonInView = useInView(lemonRef, { once: true, margin: '-100px' });
 
   const renderVarietySection = (variety: Variety) => {
     return (
-      <motion.div 
+      <motion.div
         key={variety.id}
         className="mb-20 last:mb-0"
         initial={{ opacity: 0, y: 40 }}
@@ -194,8 +237,8 @@ const Products = () => {
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 mb-10 items-center">
           <div className="md:w-2/5 w-full">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-              <FadeInImage 
-                src={variety.image} 
+              <FadeInImage
+                src={variety.image}
                 alt={variety.title}
                 className="w-full h-64 md:h-80 object-contain"
                 containerClassName="w-full h-64 md:h-80"
@@ -208,7 +251,21 @@ const Products = () => {
             </div>
           </div>
           <div className="md:w-3/5 w-full flex flex-col justify-center">
-            <p className="text-stone-600 text-lg md:text-xl leading-relaxed">{variety.description}</p>
+            <p className="text-stone-600 text-lg md:text-xl leading-relaxed mb-6">{variety.description}</p>
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm inline-flex flex-col items-start">
+              <span className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-3">Standard Packaging</span>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['1kg', '5kg', '10kg', '25kg', '30kg'].map(size => (
+                  <span key={size} className="bg-white px-3 py-1.5 rounded-lg border border-stone-200 text-stone-700 font-bold text-sm shadow-sm">{size}</span>
+                ))}
+              </div>
+              <Link
+                to="/contact"
+                className="px-8 py-3 bg-[#005e2a] text-white rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-[#004d22] transition-all transform hover:-translate-y-1 shadow-md hover:shadow-xl active:scale-95"
+              >
+                Enquire Now
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -221,7 +278,7 @@ const Products = () => {
                   <Link
                     to="/contact"
                     key={subIdx}
-                    className={`block h-full group ${colors.bg} rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-2 ${colors.border} hover:border-[#005e2a]/30`}
+                    className={`flex flex-col h-full group ${colors.bg} rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-2 ${colors.border} hover:border-[#005e2a]/30`}
                   >
                     <div className="relative h-40 overflow-hidden bg-white">
                       <FadeInImage
@@ -234,22 +291,36 @@ const Products = () => {
                         {item.type}
                       </div>
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col h-full items-start">
                       <h5 className={`text-base font-serif font-bold ${colors.text} mb-2 group-hover:${colors.accent} transition-colors`}>
                         {item.name}
                       </h5>
-                      <p className="text-stone-500 text-xs leading-relaxed mb-3 line-clamp-2">
+                      <p className="text-stone-600 text-[11px] leading-relaxed mb-4 text-left">
                         {item.description}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
+
+                      <div className="mb-4 text-left w-full">
+                        <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {['1kg', '5kg', '10kg', '25kg', '30kg'].map(size => (
+                            <span key={size} className="text-[10px] bg-white px-2 py-1 rounded-md border border-stone-200 text-stone-800 font-bold shadow-sm">{size}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1.5 mb-6 items-center">
                         {item.brands.map((brand, brandIdx) => (
-                          <span 
+                          <span
                             key={brandIdx}
-                            className="text-[10px] font-medium bg-white px-2 py-1 rounded-md text-stone-600 border border-stone-200"
+                            className="text-[11px] font-bold bg-white/90 px-2.5 py-1 rounded-md text-stone-600 border border-stone-100 shadow-sm"
                           >
                             {brand}
                           </span>
                         ))}
+                      </div>
+
+                      <div className={`mt-auto w-full py-3.5 flex items-center justify-center rounded-xl font-bold text-[10px] uppercase tracking-widest text-white shadow-md transition-all group-hover:shadow-xl group-hover:-translate-y-0.5 ${colors.badge}`}>
+                        Enquire Now
                       </div>
                     </div>
                   </Link>
@@ -346,6 +417,46 @@ const Products = () => {
 
           <div>
             {nonBasmatiVarieties.map((variety) => renderVarietySection(variety))}
+          </div>
+        </div>
+      </section>
+
+      <section ref={lemonRef} className="py-16 md:py-24 bg-stone-50 border-t border-stone-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            className="flex items-end justify-between mb-12 border-b-2 border-gold-500 pb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={lemonInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <div>
+              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Lemon Sella Varieties</h2>
+              <p className="text-stone-500">Premium parboiled golden rice</p>
+            </div>
+          </motion.div>
+
+          <div>
+            {lemonVarieties.map((variety) => renderVarietySection(variety))}
+          </div>
+        </div>
+      </section>
+
+      <section ref={variety1718Ref} className="py-16 md:py-24 bg-white border-t border-stone-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={variety1718InView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <div>
+              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">1718 Basmati Variety</h2>
+              <p className="text-stone-500">Modern aromatic innovation</p>
+            </div>
+          </motion.div>
+
+          <div>
+            {variety1718.map((variety) => renderVarietySection(variety))}
           </div>
         </div>
       </section>

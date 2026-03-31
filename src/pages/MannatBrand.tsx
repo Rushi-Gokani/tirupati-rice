@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ShieldCheck, Utensils, Heart } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 
@@ -10,8 +11,28 @@ import goldPR1114 from '../../images/mannat-gold/PR-1114-golden-sella.jpg';
 import goldPusa from '../../images/mannat-gold/Pusa-basmati-golden-sella.jpg';
 import goldSharbati from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
 import goldSugandha from '../../images/mannat-gold/Sugandha-golden-sella.jpg';
+import mannatClassic from '../../images/Mannat new/Mannati Rice 1121 30kg (CLASSIC).png';
+import mannatGoldenSella from '../../images/Mannat new/Mannati Rice 1121 30kg (GOLDEN SELLA).png';
+import mannatPremium from '../../images/Mannat new/Mannati Rice 1121 30kg (PREMIUM).png';
+
 
 const mannatProducts = [
+  {
+    title: "Mannati Rice 1121 30kg (CLASSIC)",
+    desc: "Mannat 1121 Classic embodies everyday comfort with dependable quality and a gentle aroma. Its long, soft grains cook into a light and fluffy texture, making it a perfect companion for daily meals. Designed for consistency and ease, it offers a wholesome source of carbohydrates for sustained energy while remaining low in fat and easy to digest. Naturally gluten-free, it supports a balanced diet while bringing warmth and satisfaction to every plate.",
+    image: mannatClassic
+  },
+  {
+    title: "Mannati Rice 1121 30kg (GOLDEN SELLA)",
+    desc: "Mannat 1121 Golden Sella combines strength, nutrition, and versatility in every grain. Its golden color and firm texture, achieved through careful parboiling, ensure that the rice remains separate and non-sticky after cooking—ideal for biryani and large-scale preparations. This process also helps preserve vital nutrients, supporting better energy levels and digestion. With its robust structure and nourishing qualities, it is a dependable choice for both taste and health.",
+    image: mannatGoldenSella
+  },
+  {
+    title: "Mannati Rice 1121 30kg (PREMIUM)",
+    desc: "Elevate your dining experience with Mannat 1121 Premium, a refined selection of high-quality basmati known for its superior aroma and graceful grain elongation. Each serving delivers a soft, fluffy texture and a rich, inviting fragrance that enhances every dish. Beyond its indulgent appeal, it is low in cholesterol, easy to digest, and provides lasting energy, making it a perfect blend of luxury and wellness for special occasions and everyday enjoyment alike.",
+    image: mannatPremium
+  },
+
   {
     title: "1121 golden sella",
     desc: "Everyday perfect long-grain rice with beautiful aroma.",
@@ -158,8 +179,23 @@ const MannatBrand = () => {
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-stone-800 mb-2">{product.title}</h3>
+                <h3 className="text-xl font-bold text-stone-800 mb-2 flex items-center">{product.title}</h3>
                 <p className="text-stone-600 text-sm leading-relaxed flex-grow">{product.desc}</p>
+
+                <div className="mt-4 pt-4 border-t border-stone-100">
+                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2 opacity-80">Available Sizes</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {['1kg', '5kg', '10kg', '25kg', '30kg'].map(size => (
+                      <span key={size} className="text-[10px] bg-white px-3 py-1.5 rounded-lg border border-stone-200 text-stone-800 font-bold shadow-sm">{size}</span>
+                    ))}
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="block w-full py-4 bg-[#005e2a] text-white text-center rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#004d22] transition-all transform hover:-translate-y-1 shadow-md hover:shadow-xl active:scale-95"
+                  >
+                    Enquire Now
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
