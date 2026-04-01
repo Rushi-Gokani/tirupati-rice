@@ -4,7 +4,6 @@ import { ArrowRight, Leaf, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInImage from '../components/ui/FadeInImage';
 import ExpandableText from '../components/ui/ExpandableText';
-import ProductSlider from '../components/ProductSlider';
 
 import steam1121 from '../../images/rice-1121-steam.jpg';
 import raw1121 from '../../images/rice-1121-raw.jpg';
@@ -37,7 +36,7 @@ import sugandhaWhite from '../../images/tirupati-white/Sugandha-white-sella.jpg'
 
 import sharbatiGold from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
 import sharbatiWhite from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
-import lemon1121 from '../../images/lemon/1121_lemon_sella.jpg';
+import lemon1121 from '../../images/RICE 5.png';
 import lemon1509 from '../../images/lemon/1509_lemon_sella.jpg';
 import new1718GoldenSella from '../../images/Mannat new/1718_golden_sella.jpg';
 import new1718Steam from '../../images/Mannat new/1718_steam.jpg';
@@ -80,7 +79,8 @@ const basmatiVarieties: Variety[] = [
       { name: 'Golden Sella', type: 'golden', description: 'Parboiled golden variety with enhanced nutritional retention. The golden hue indicates the parboiling process that locks in vitamins and minerals.', image: gold1121, brands: ['Mannat'] },
       { name: 'White Sella', type: 'white', description: 'Premium white parboiled rice with a clean appearance. Perfect for those who prefer traditional white rice with the benefits of parboiling.', image: white1121, brands: ['Tirupati'] },
       { name: 'Steam Rice', type: 'steam', description: 'Steam-treated for perfect texture and extended shelf life. The steaming process ensures consistent cooking results with minimal breakage.', image: steam1121, brands: ['Tirupati', 'Mannat'] },
-      { name: 'Raw Rice', type: 'raw', description: 'Pure raw Basmati in its natural form. Untouched by processing, it offers the authentic Basmati experience with maximum aroma and natural taste.', image: raw1121, brands: ['Tirupati', 'Mannat'] }
+      { name: 'Raw Rice', type: 'raw', description: 'Pure raw Basmati in its natural form. Untouched by processing, it offers the authentic Basmati experience with maximum aroma and natural taste.', image: raw1121, brands: ['Tirupati', 'Mannat'] },
+      { name: '1121 Lemon Sella', type: 'lemon', description: 'Premium long-grain variety known for its distinct golden hue and exceptional nutritional value. Ideal for biryani, pulao, and various exotic dishes.', image: lemon1121, brands: ['Tirupati'] }
     ]
   },
   {
@@ -92,7 +92,8 @@ const basmatiVarieties: Variety[] = [
     subVarieties: [
       { name: 'Golden Sella', type: 'golden', description: 'Golden parboiled variety with rich taste and enhanced nutrition. Perfect for those who want premium quality at excellent value.', image: gold1509, brands: ['Mannat'] },
       { name: 'Steam Rice', type: 'steam', description: 'Steam-processed long grain rice for consistent cooking results. Quick to prepare with reliable texture every time.', image: steam1509, brands: ['Tirupati', 'Mannat'] },
-      { name: 'Raw Rice', type: 'raw', description: 'Pure 1509 Basmati in its natural state. Offers authentic taste and maximum aroma for traditional cooking.', image: raw1509, brands: ['Tirupati', 'Mannat'] }
+      { name: 'Raw Rice', type: 'raw', description: 'Pure 1509 Basmati in its natural state. Offers authentic taste and maximum aroma for traditional cooking.', image: raw1509, brands: ['Tirupati', 'Mannat'] },
+      { name: '1509 Lemon Sella', type: 'lemon', description: 'Fragrant and nutritious long-grain variety with beautiful yellow tint. Faster cooking time with impressive elongation.', image: lemon1509, brands: ['Tirupati'] }
     ]
   },
   {
@@ -130,22 +131,6 @@ const basmatiVarieties: Variety[] = [
       { name: 'White Sella', type: 'white', description: 'Parboiled traditional Basmati, bridging heritage aroma with practical, non-sticky cooking.', image: tradWhite, brands: ['Tirupati'] },
       { name: 'Raw Rice', type: 'raw', description: 'Pure, unprocessed traditional Basmati. The truest expression of indigenous Basmati heritage.', image: tradRaw, brands: ['Tirupati', 'Mannat'] }
     ]
-  },
-  {
-    id: '1121-lemon-sella',
-    title: '1121 Lemon Sella Rice',
-    subtitle: 'Golden Parboiled Excellence',
-    description: '1121 Lemon Sella Rice is a premium long-grain variety known for its distinct golden hue and exceptional nutritional value. The specialized parboiling process ensures that each grain remains separate, fluffy, and firm after cooking, making it an ideal choice for biryani, pulao, and various exotic dishes. Its unique color combined with the world-famous 1121 grain length brings a royal touch to every meal.',
-    image: lemon1121,
-    subVarieties: []
-  },
-  {
-    id: '1509-lemon-sella',
-    title: '1509 Lemon Sella Rice',
-    subtitle: 'Fragrant & Nutritious',
-    description: '1509 Lemon Sella Rice offers a perfect balance of aroma, taste, and texture. This variety undergoes a careful steaming and parboiling process that preserves natural vitamins while imparting a beautiful yellow tint to the grains. Renowned for its faster cooking time and impressive elongation, it provides a cost-effective yet premium experience for both household dining and commercial catering.',
-    image: lemon1509,
-    subVarieties: []
   },
 ];
 
@@ -379,8 +364,6 @@ const Products = () => {
           </span>
         </div>
       </div>
-
-      <ProductSlider />
 
       <section ref={basmatiRef} className="py-16 md:py-24 max-w-7xl mx-auto px-6">
         <motion.div

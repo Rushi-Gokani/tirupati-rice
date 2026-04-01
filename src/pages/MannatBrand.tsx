@@ -52,7 +52,7 @@ const MannatBrand = () => {
           <img
             src={mannatLogo}
             alt="Mannat Brand Logo"
-            className="w-auto h-24 md:h-32 lg:h-40 object-contain drop-shadow-sm"
+            className="w-auto h-32 md:h-44 lg:h-56 object-contain drop-shadow-sm"
           />
         </motion.div>
         <motion.p

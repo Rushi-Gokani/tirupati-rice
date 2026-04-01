@@ -3,7 +3,9 @@
     "allow": [
       "Bash(yarn install:*)",
       "Bash(npm install:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(ls -la \"C:\\\\Tirupati\\\\tirupati-rice\\\\public\\\\images 2>/dev/null || ls -la C:Tirupatitirupati-ricesrcimages\")",
+      "Bash(npm run:*)"
     ]
   }
 }

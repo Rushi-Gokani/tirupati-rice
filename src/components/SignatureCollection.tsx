@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import FadeInImage from './ui/FadeInImage';
-import royalBasmatiImg from '../../images/gettyimages-653903170-2048x2048.jpg';
+import royalBasmatiImg from '../../images/rice 1.jpg.jpeg';
 import mannatLogo from '../../images/TRAN MANNAT.png';
 import tirupatiLogo from '../../images/2.png';
 

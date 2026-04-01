@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 import FadeInImage from './ui/FadeInImage';
 
 import tirupatiPremium from '../../images/tirupati new/6.png';
-import mannatGold from '../../images/mannat-gold/1121-golden-sella.jpg';
 import lemon1121 from '../../images/tirupati new/4.png';
-import rice1718Golden from '../../images/tirupati new/3.png';
 
 const products = [
     {
@@ -30,7 +28,6 @@ const products = [
         link: "/products",
         color: "from-yellow-600 to-yellow-800"
     },
-
      {
         id: 3,
         title: "Mannati Rice 1121 30kg (PREMIUM)",

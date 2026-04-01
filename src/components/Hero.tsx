@@ -80,6 +80,9 @@ const Hero = () => {
 
       </motion.div>
 
+      {/* Dark black overlay for text readability */}
+      <div className="absolute inset-0 bg-black/55" />
+
       {/* Animated gradient overlay */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-gold-500/10 via-transparent to-gold-500/10"
@@ -98,6 +101,47 @@ const Hero = () => {
         style={{ opacity }}
         className="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-6 max-w-5xl mx-auto text-white z-10"
       >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col items-center gap-4"
+        >
+          {/* Decorative line */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '80px' }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="h-px bg-gold-400"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-gold-400 uppercase tracking-[0.3em] text-xs font-bold"
+          >
+            Our Promise
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.8 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight drop-shadow-xl"
+          >
+            "The taste you love,
+            <br />
+            <span className="text-gold-400">backed by a promise</span>
+            <br />
+            you can trust."
+          </motion.h1>
+          {/* Decorative line */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '80px' }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="h-px bg-gold-400"
+          />
+        </motion.div>
       </motion.div>
 
       {/* Hero Features / Key Highlights */}

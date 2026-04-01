@@ -57,7 +57,7 @@ const TirupatiBrand = () => {
           <img
             src={tirupatiLogo}
             alt="Tirupati Brand Logo"
-            className="w-auto h-24 md:h-32 lg:h-40 object-contain drop-shadow-sm"
+            className="w-auto h-32 md:h-44 lg:h-56 object-contain drop-shadow-sm"
           />
         </motion.div>
         <motion.p
@@ -75,7 +75,7 @@ const TirupatiBrand = () => {
           initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
         >
           <FadeInImage
-            src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop"
+            src="images/rice 3.jpg.jpeg"
             alt="Tirupati Basmati Rice"
             className="w-full h-full object-cover"
             containerClassName="w-full h-full"
