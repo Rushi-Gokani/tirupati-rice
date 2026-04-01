@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2, ExternalLink } from 'lucide-react';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -304,6 +304,93 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
+
+        {/* Map Section */}
+        <motion.div
+          className="mt-16 md:mt-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <div className="text-center mb-8 md:mb-10">
+            <motion.span
+              className="text-gold-600 tracking-widest uppercase text-xs font-bold mb-2 block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              Find Us
+            </motion.span>
+            <motion.h2
+              className="text-2xl md:text-3xl font-serif text-stone-900"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              Visit Our Location
+            </motion.h2>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-stone-100">
+            <div className="flex flex-col lg:flex-row">
+              {/* Map Info Panel */}
+              <div className="w-full lg:w-1/3 p-6 md:p-8 lg:p-10 bg-gradient-to-br from-stone-900 to-stone-800 text-white">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center">
+                      <MapPin size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl font-bold">Tirupati Basmati Exports</h3>
+                      <p className="text-stone-400 text-sm">Private Limited</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <p className="text-stone-300 leading-relaxed">
+                      Chopri Road, Village Kurak, Karnal,<br />
+                      Taraori – 132116, Haryana, India
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://www.google.com/maps?q=TIRUPATI+BASMATI+EXPORTS+PRIVATE+LIMITED,+Chopri+Road,+Kurak,+Taraori,+Haryana+132116&ftid=0xcabc58e8a169861:0x2d51b11a22080d31&entry=gps&shh=CAE&lucs=,94259550,94297699,94284484,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI2LjEyLjIuODg0NjExMjE2MBgAINeCAypRLDk0MjU5NTUwLDk0Mjk3Njk5LDk0Mjg0NDg0LDk0MjMxMTg4LDk0MjgwNTY4LDQ3MDcxNzA0LDk0MjE4NjQxLDk0MjgyMTM0LDk0Mjg2ODY5QgJJTg%3D%3D&skid=b68b932c-2077-41e9-8c9c-11787b0ce4ed&g_st=iw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white rounded-xl font-medium transition-all duration-300 group"
+                  >
+                    <span>Open in Google Maps</span>
+                    <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </motion.div>
+              </div>
+
+              {/* Map iframe */}
+              <motion.div
+                className="w-full lg:w-2/3 h-[300px] lg:h-[400px]"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.9!2d76.97!3d29.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xcabc58e8a169861%3A0x2d51b11a22080d31!2sTirupati%20Basmati%20Exports%20Private%20Limited!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Tirupati Basmati Exports Location"
+                  className="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -12,27 +12,17 @@ import rice1718Golden from '../../images/tirupati new/3.png';
 const products = [
     {
         id: 1,
-        title: "Tirupati 1121 Premium",
+        title: "Tirupati 1121 Premium Basmati Rice",
         subtitle: "The King of Basmati",
         description: "Extra-long grains with an exquisite aroma that defines luxury dining. Aged to perfection for the ultimate culinary experience.",
         image: tirupatiPremium,
         brand: "Tirupati",
-        link: "/brand/tirupati",
+        link: "/products",
         color: "from-emerald-900 to-[#005e2a]"
     },
     {
         id: 2,
-        title: "Mannati Golden Sella",
-        subtitle: "Daily Nutritional Power",
-        description: "Parboiled to lock in essential nutrients while maintaining a firm, non-sticky texture. Perfect for every household.",
-        image: mannatGold,
-        brand: "Mannat",
-        link: "/brand/mannat",
-        color: "from-amber-700 to-amber-900"
-    },
-    {
-        id: 3,
-        title: "1121 Lemon Sella",
+        title: "1121 XXXL Golden Sella",
         subtitle: "Golden Parboiled Excellence",
         description: "Distinctive golden hue and superior strength. Ideal for large gatherings and rich culinary preparations.",
         image: lemon1121,
@@ -40,14 +30,14 @@ const products = [
         link: "/products",
         color: "from-yellow-600 to-yellow-800"
     },
-    {
-        id: 4,
-        title: "1718 Basmati Variety",
-        subtitle: "Modern Aromatic Innovation",
+
+     {
+        id: 3,
+        title: "Mannati Rice 1121 30kg (PREMIUM)",
         description: "A breakthrough variety combining traditional aroma with enhanced grain resilience and productivity.",
-        image: rice1718Golden,
+        image: "/images/Mannat new/Mannati Rice 1121 30kg (PREMIUM).png",
         brand: "Mannat",
-        link: "/brand/mannat",
+        link: "/products",
         color: "from-stone-700 to-stone-900"
     }
 ];
@@ -91,12 +81,12 @@ const ProductSlider = () => {
     const product = products[currentIndex];
 
     return (
-        <section className="relative py-20 overflow-hidden bg-stone-50">
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex items-center justify-between mb-12">
+        <section className="py-16 md:py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6">
                     <div>
                         <span className="text-gold-600 tracking-widest uppercase text-sm font-bold mb-2 block">Our Masterpieces</span>
-                        <h2 className="text-4xl md:text-5xl font-serif text-stone-900">Featured Collections</h2>
+                        <h2 className="text-3xl md:text-5xl font-serif text-stone-900">Featured Collections</h2>
                     </div>
                     <div className="hidden md:flex gap-4">
                         <button
@@ -114,7 +104,7 @@ const ProductSlider = () => {
                     </div>
                 </div>
 
-                <div className="relative h-[650px] md:h-[500px]">
+                <div className="relative h-[600px] md:h-[480px]">
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             key={currentIndex}
@@ -129,9 +119,9 @@ const ProductSlider = () => {
                             }}
                             className="absolute inset-0 w-full h-full"
                         >
-                            <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-8 md:gap-0 bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-stone-100">
+                            <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 md:gap-0 bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-stone-100">
                                 {/* Text Content */}
-                                <div className={`p-10 md:p-16 flex flex-col justify-center bg-gradient-to-br ${product.color} text-white relative overflow-hidden`}>
+                                <div className={`p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-gradient-to-br ${product.color} text-white relative overflow-hidden`}>
                                     <div className="absolute top-0 right-0 p-10 opacity-10">
                                         <Star size={200} className="transform rotate-12" />
                                     </div>
@@ -142,27 +132,27 @@ const ProductSlider = () => {
                                         transition={{ delay: 0.2 }}
                                         className="relative z-10"
                                     >
-                                        <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 border border-white/30">
+                                        <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 border border-white/30">
                                             {product.brand} Brand
                                         </span>
-                                        <h3 className="text-4xl md:text-6xl font-serif font-bold mb-4">{product.title}</h3>
-                                        <p className="text-gold-200 text-lg md:text-xl font-medium mb-6">{product.subtitle}</p>
-                                        <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-md italic">
+                                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold mb-2 md:mb-3">{product.title}</h3>
+                                        {product.subtitle && <p className="text-gold-200 text-base md:text-lg font-medium mb-3 md:mb-4">{product.subtitle}</p>}
+                                        <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6 md:mb-8 max-w-md italic">
                                             "{product.description}"
                                         </p>
 
                                         <Link
                                             to={product.link}
-                                            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-stone-900 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-gold-500 hover:text-white transition-all group shadow-xl"
+                                            className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-white text-stone-900 rounded-xl font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-gold-500 hover:text-white transition-all group shadow-xl"
                                         >
                                             Explore Collection
-                                            <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
+                                            <ArrowRight className="group-hover:translate-x-2 transition-transform" size={18} />
                                         </Link>
                                     </motion.div>
                                 </div>
 
                                 {/* Image Section */}
-                                <div className="relative h-full w-full flex items-center justify-center p-8 md:p-12 lg:p-16 bg-white">
+                                <div className="relative h-full w-full flex items-center justify-center p-6 md:p-12 bg-white">
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                                         animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -173,7 +163,7 @@ const ProductSlider = () => {
                                         <FadeInImage
                                             src={product.image}
                                             alt={product.title}
-                                            className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-h-[400px]"
+                                            className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
                                             containerClassName="w-full h-full flex items-center justify-center"
                                         />
                                     </motion.div>

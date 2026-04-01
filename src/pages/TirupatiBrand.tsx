@@ -4,13 +4,6 @@ import { Sparkles, CheckCircle, Package } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 import ExpandableText from '../components/ui/ExpandableText';
 
-import whiteSella1121 from '../../images/tirupati-white/1121-white-sella.jpg';
-import whiteSella1401 from '../../images/tirupati-white/1401-white-sella.jpg';
-import whiteSellaPR1114 from '../../images/tirupati-white/PR1114-white-sella.jpg';
-import whiteSellaPusa from '../../images/tirupati-white/Pusa-basmati-white-sella.jpg';
-import whiteSellaSharbati from '../../images/tirupati-white/Sharbati-white-sella-rice.jpg';
-import whiteSellaSugandha from '../../images/tirupati-white/Sugandha-white-sella.jpg';
-import whiteSellaTraditional from '../../images/tirupati-white/Traditional-basmati-white-sella.jpg';
 import tirupatiLogo from '../../images/2.png';
 import tirupatiPremiumBag from '../../images/tirupati new/6.png';
 import tirupatiRawBag from '../../images/tirupati new/5.png';
@@ -37,41 +30,6 @@ const tirupatiProducts = [
     title: "TIRUPATI PREMIUM BIRYANI SPECIAL RICE",
     desc: "Crafted for culinary excellence, Tirupati Premium Biryani Special Rice is designed to bring out the finest flavors in every festive dish. With its extra-long grains, remarkable elongation, and captivating aroma, it ensures that every serving of biryani or pulao is a masterpiece. The grains remain perfectly separate and fluffy, enhancing both presentation and taste. Alongside its indulgent appeal, it is naturally gluten-free, low in saturated fat, and easy to digest, offering a delightful combination of taste and nourishment.",
     image: tirupatiBiryaniBag
-  },
-  {
-    title: "1121 white sella",
-    desc: "Everyday perfect long-grain rice with beautiful aroma.",
-    image: whiteSella1121
-  },
-  {
-    title: "1401 white sella",
-    desc: "Aromatic and fluffy for your daily meals.",
-    image: whiteSella1401
-  },
-  {
-    title: "PR1114 white sella",
-    desc: "Short-grain perfection for quick dishes and snacks.",
-    image: whiteSellaPR1114
-  },
-  {
-    title: "Pusa basmati white sella",
-    desc: "Parboiled for extra nutrition and great taste.",
-    image: whiteSellaPusa
-  },
-  {
-    title: "Sharbati white sella rice",
-    desc: "Consistent quality you can trust for every occasion.",
-    image: whiteSellaSharbati
-  },
-  {
-    title: "Sugandha white sella",
-    desc: "Specially formulated for those special family dinners.",
-    image: whiteSellaSugandha
-  },
-  {
-    title: "Traditional basmati white sella",
-    desc: "Extra long grains for a royal touch to your biryani.",
-    image: whiteSellaTraditional
   }
 ];
 

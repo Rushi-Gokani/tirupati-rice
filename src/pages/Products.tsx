@@ -4,6 +4,7 @@ import { ArrowRight, Leaf, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeInImage from '../components/ui/FadeInImage';
 import ExpandableText from '../components/ui/ExpandableText';
+import ProductSlider from '../components/ProductSlider';
 
 import steam1121 from '../../images/rice-1121-steam.jpg';
 import raw1121 from '../../images/rice-1121-raw.jpg';
@@ -47,12 +48,13 @@ const typeColors = {
   white: { bg: 'bg-gradient-to-br from-stone-50 to-stone-100', border: 'border-stone-200', text: 'text-stone-700', accent: 'text-stone-600', badge: 'bg-gradient-to-r from-stone-400 to-stone-500' },
   steam: { bg: 'bg-gradient-to-br from-slate-50 to-blue-50', border: 'border-slate-200', text: 'text-slate-700', accent: 'text-slate-600', badge: 'bg-gradient-to-r from-slate-500 to-slate-600' },
   creamy: { bg: 'bg-gradient-to-br from-orange-50 to-amber-50', border: 'border-orange-200', text: 'text-orange-800', accent: 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-amber-500' },
-  raw: { bg: 'bg-gradient-to-br from-neutral-50 to-stone-100', border: 'border-neutral-200', text: 'text-neutral-700', accent: 'text-neutral-600', badge: 'bg-gradient-to-r from-neutral-500 to-stone-500' }
+  raw: { bg: 'bg-gradient-to-br from-neutral-50 to-stone-100', border: 'border-neutral-200', text: 'text-neutral-700', accent: 'text-neutral-600', badge: 'bg-gradient-to-r from-neutral-500 to-stone-500' },
+  lemon: { bg: 'bg-gradient-to-br from-yellow-50 to-amber-50', border: 'border-yellow-200', text: 'text-yellow-800', accent: 'text-yellow-600', badge: 'bg-gradient-to-r from-yellow-500 to-amber-500' }
 };
 
 interface SubVariety {
   name: string;
-  type: 'golden' | 'white' | 'steam' | 'creamy' | 'raw';
+  type: 'golden' | 'white' | 'steam' | 'creamy' | 'raw' | 'lemon';
   description: string;
   image: string;
   brands: string[];
@@ -129,6 +131,22 @@ const basmatiVarieties: Variety[] = [
       { name: 'Raw Rice', type: 'raw', description: 'Pure, unprocessed traditional Basmati. The truest expression of indigenous Basmati heritage.', image: tradRaw, brands: ['Tirupati', 'Mannat'] }
     ]
   },
+  {
+    id: '1121-lemon-sella',
+    title: '1121 Lemon Sella Rice',
+    subtitle: 'Golden Parboiled Excellence',
+    description: '1121 Lemon Sella Rice is a premium long-grain variety known for its distinct golden hue and exceptional nutritional value. The specialized parboiling process ensures that each grain remains separate, fluffy, and firm after cooking, making it an ideal choice for biryani, pulao, and various exotic dishes. Its unique color combined with the world-famous 1121 grain length brings a royal touch to every meal.',
+    image: lemon1121,
+    subVarieties: []
+  },
+  {
+    id: '1509-lemon-sella',
+    title: '1509 Lemon Sella Rice',
+    subtitle: 'Fragrant & Nutritious',
+    description: '1509 Lemon Sella Rice offers a perfect balance of aroma, taste, and texture. This variety undergoes a careful steaming and parboiling process that preserves natural vitamins while imparting a beautiful yellow tint to the grains. Renowned for its faster cooking time and impressive elongation, it provides a cost-effective yet premium experience for both household dining and commercial catering.',
+    image: lemon1509,
+    subVarieties: []
+  },
 ];
 
 const variety1718: Variety[] = [
@@ -193,25 +211,6 @@ const nonBasmatiVarieties: Variety[] = [
   }
 ];
 
-const lemonVarieties: Variety[] = [
-  {
-    id: '1121-lemon-sella',
-    title: '1121 Lemon Sella Rice',
-    subtitle: 'Golden Parboiled Excellence',
-    description: '1121 Lemon Sella Rice is a premium long-grain variety known for its distinct golden hue and exceptional nutritional value. The specialized parboiling process ensures that each grain remains separate, fluffy, and firm after cooking, making it an ideal choice for biryani, pulao, and various exotic dishes. Its unique color combined with the world-famous 1121 grain length brings a royal touch to every meal.',
-    image: lemon1121,
-    subVarieties: []
-  },
-  {
-    id: '1509-lemon-sella',
-    title: '1509 Lemon Sella Rice',
-    subtitle: 'Fragrant & Nutritious',
-    description: '1509 Lemon Sella Rice offers a perfect balance of aroma, taste, and texture. This variety undergoes a careful steaming and parboiling process that preserves natural vitamins while imparting a beautiful yellow tint to the grains. Renowned for its faster cooking time and impressive elongation, it provides a cost-effective yet premium experience for both household dining and commercial catering.',
-    image: lemon1509,
-    subVarieties: []
-  }
-];
-
 const Products = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const basmatiRef = useRef<HTMLElement>(null);
@@ -220,10 +219,6 @@ const Products = () => {
   const headerInView = useInView(headerRef, { once: true, margin: '-100px' });
   const basmatiInView = useInView(basmatiRef, { once: true, margin: '-100px' });
   const nonBasmatiInView = useInView(nonBasmatiRef, { once: true, margin: '-100px' });
-  const variety1718Ref = useRef<HTMLElement>(null);
-  const variety1718InView = useInView(variety1718Ref, { once: true, margin: '-100px' });
-  const lemonRef = useRef<HTMLElement>(null);
-  const lemonInView = useInView(lemonRef, { once: true, margin: '-100px' });
 
   const renderVarietySection = (variety: Variety) => {
     return (
@@ -385,6 +380,8 @@ const Products = () => {
         </div>
       </div>
 
+      <ProductSlider />
+
       <section ref={basmatiRef} className="py-16 md:py-24 max-w-7xl mx-auto px-6">
         <motion.div
           className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6"
@@ -400,7 +397,9 @@ const Products = () => {
         </motion.div>
 
         <div>
-          {basmatiVarieties.map((variety) => renderVarietySection(variety))}
+          {basmatiVarieties.slice(0, 2).map((variety) => renderVarietySection(variety))}
+          {variety1718.map((variety) => renderVarietySection(variety))}
+          {basmatiVarieties.slice(2).map((variety) => renderVarietySection(variety))}
         </div>
       </section>
 
@@ -424,45 +423,7 @@ const Products = () => {
         </div>
       </section>
 
-      <section ref={lemonRef} className="py-16 md:py-24 bg-stone-50 border-t border-stone-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="flex items-end justify-between mb-12 border-b-2 border-gold-500 pb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={lemonInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <div>
-              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">Lemon Sella Varieties</h2>
-              <p className="text-stone-500">Premium parboiled golden rice</p>
-            </div>
-          </motion.div>
 
-          <div>
-            {lemonVarieties.map((variety) => renderVarietySection(variety))}
-          </div>
-        </div>
-      </section>
-
-      <section ref={variety1718Ref} className="py-16 md:py-24 bg-white border-t border-stone-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="flex items-end justify-between mb-12 border-b-2 border-[#005e2a] pb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={variety1718InView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <div>
-              <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-2">1718 Basmati Variety</h2>
-              <p className="text-stone-500">Modern aromatic innovation</p>
-            </div>
-          </motion.div>
-
-          <div>
-            {variety1718.map((variety) => renderVarietySection(variety))}
-          </div>
-        </div>
-      </section>
 
       <motion.section
         className="py-20 bg-white border-t border-stone-200 text-center"

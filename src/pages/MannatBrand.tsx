@@ -4,14 +4,6 @@ import { ShieldCheck, Utensils, Heart } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 import ExpandableText from '../components/ui/ExpandableText';
 
-import gold1121 from '../../images/mannat-gold/1121-golden-sella.jpg';
-import gold1401 from '../../images/mannat-gold/1401-golden-sella.jpg';
-import gold1509 from '../../images/mannat-gold/1509-basmati-golden-sella-rice.jpg';
-import gold1718 from '../../images/mannat-gold/1718-golden-sella.jpg';
-import goldPR1114 from '../../images/mannat-gold/PR-1114-golden-sella.jpg';
-import goldPusa from '../../images/mannat-gold/Pusa-basmati-golden-sella.jpg';
-import goldSharbati from '../../images/mannat-gold/Sharbati-golden-sella.jpg';
-import goldSugandha from '../../images/mannat-gold/Sugandha-golden-sella.jpg';
 import mannatLogo from '../../images/TRAN MANNAT.png';
 import mannatClassic from '../../images/Mannat new/Mannati Rice 1121 30kg (CLASSIC).png';
 import mannatGoldenSella from '../../images/Mannat new/Mannati Rice 1121 30kg (GOLDEN SELLA).png';
@@ -33,47 +25,6 @@ const mannatProducts = [
     title: "Mannati Rice 1121 30kg (PREMIUM)",
     desc: "Elevate your dining experience with Mannat 1121 Premium, a refined selection of high-quality basmati known for its superior aroma and graceful grain elongation. Each serving delivers a soft, fluffy texture and a rich, inviting fragrance that enhances every dish. Beyond its indulgent appeal, it is low in cholesterol, easy to digest, and provides lasting energy, making it a perfect blend of luxury and wellness for special occasions and everyday enjoyment alike.",
     image: mannatPremium
-  },
-
-  {
-    title: "1121 golden sella",
-    desc: "Everyday perfect long-grain rice with beautiful aroma.",
-    image: gold1121
-  },
-  {
-    title: "1401 golden sella",
-    desc: "Aromatic and fluffy for your daily meals.",
-    image: gold1401
-  },
-  {
-    title: "1509 basmati golden sella rice",
-    desc: "Short-grain perfection for quick dishes and snacks.",
-    image: gold1509
-  },
-  {
-    title: "1718 golden sella",
-    desc: "Parboiled for extra nutrition and great taste.",
-    image: gold1718
-  },
-  {
-    title: "PR 1114 golden sella",
-    desc: "Rich in fiber and low in glycemic index.",
-    image: goldPR1114
-  },
-  {
-    title: "Pusa basmati golden sella",
-    desc: "Budget-friendly aromatic rice for every kitchen.",
-    image: goldPusa
-  },
-  {
-    title: "Sharbati golden sella",
-    desc: "Ideal for daily consumption with delicious taste.",
-    image: goldSharbati
-  },
-  {
-    title: "Sugandha golden sella",
-    desc: "Excellent grain length and enticing aroma.",
-    image: goldSugandha
   }
 ];
 
@@ -151,7 +102,7 @@ const MannatBrand = () => {
           initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
         >
           <FadeInImage
-            src={gold1121}
+            src={mannatGoldenSella}
             alt="Mannat Everyday Premium"
             className="w-full h-full object-cover grayscale-[20%]"
             containerClassName="w-full h-full"
