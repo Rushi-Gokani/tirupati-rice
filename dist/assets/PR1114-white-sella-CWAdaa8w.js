@@ -1,1 +1,0 @@
-const a="/assets/Traditional-basmati-white-sella-DKd9x42t.jpg",s="/assets/Sharbati-white-sella-rice-sWKYbokU.jpg",t="/assets/Sugandha-white-sella-yrqkXCMu.jpg",e="/assets/PR1114-white-sella-Df9Zfw4A.jpg";export{e as a,s as b,t as c,a as w};
