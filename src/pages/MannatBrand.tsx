@@ -4,10 +4,11 @@ import { ShieldCheck, Utensils, Heart } from 'lucide-react';
 import FadeInImage from '../components/ui/FadeInImage';
 import ExpandableText from '../components/ui/ExpandableText';
 
-import mannatLogo from '../../images/TRAN MANNAT.png';
-import mannatClassic from '../../images/Mannat new/Mannati Rice 1121 30kg (CLASSIC).png';
-import mannatGoldenSella from '../../images/Mannat new/Mannati Rice 1121 30kg (GOLDEN SELLA).png';
-import mannatPremium from '../../images/Mannat new/Mannati Rice 1121 30kg (PREMIUM).png';
+import mannatLogo from '../../images/tran-mannat.png';
+import mannatClassic from '../../images/Mannat new/mannat-classic-30kg.png';
+import mannatGoldenSella from '../../images/Mannat new/mannat-golden-sella-30kg.png';
+import mannatPremium from '../../images/Mannat new/mannat-premium-30kg.png';
+import mannatHousehold from '../../images/mannat-household.jpeg';
 
 
 const mannatProducts = [
@@ -102,7 +103,7 @@ const MannatBrand = () => {
           initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
         >
           <FadeInImage
-            src={mannatGoldenSella}
+            src={mannatHousehold}
             alt="Mannat Everyday Premium"
             className="w-full h-full object-cover grayscale-[20%]"
             containerClassName="w-full h-full"

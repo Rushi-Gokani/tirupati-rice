@@ -13,21 +13,46 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+    
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const getVal = (id: string) => (formRef.current!.querySelector(`#${id}`) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement)?.value || '';
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const payload = {
+        first_name: getVal('firstName'),
+        last_name: getVal('lastName'),
+        email: getVal('email'),
+        subject: getVal('subject'),
+        message: getVal('message'),
+      };
 
-    // Reset after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      if (formRef.current) {
-        formRef.current.reset();
+      const response = await fetch('https://feed.ohmylead.com/api/webhook/4926babe-d549-4535-a783-cf98684fdf66', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Reset after showing success
+        setTimeout(() => {
+          setIsSubmitted(false);
+          if (formRef.current) {
+            formRef.current.reset();
+          }
+        }, 3000);
+      } else {
+        console.error('Form submission failed');
       }
-    }, 3000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -40,19 +65,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: ' +91 9896155542',
+      links: [
+        { label: '+91 9896342083', url: 'tel:+919896342083' },
+        { label: '+1 (555) 123-4567', url: 'tel:+15551234567' },
+      ],
       delay: 0.1,
     },
      {
       icon: Phone,
       title: 'WhatsApp',
-      content: ' +91  9896295083 ',
+      links: [
+        { label: '+91 9896342083', url: 'https://wa.me/919896342083' },
+      ],
       delay: 0.1,
     },
     {
       icon: Mail,
       title: 'Email',
-      content: ' info@tirupatibasmatiexports.com',
+      links: [
+        { label: 'accounts@tirupatibasmatiexports.com', url: 'mailto:accounts@tirupatibasmatiexports.com' },
+      ],
       delay: 0.2,
     },
   ];
@@ -120,7 +152,23 @@ const Contact = () => {
                 </motion.div>
                 <div>
                   <h3 className="text-lg md:text-xl font-serif font-bold text-stone-900 mb-1 md:mb-2">{info.title}</h3>
-                  <p className="text-stone-600 text-sm md:text-base whitespace-pre-line">{info.content}</p>
+                  {info.links ? (
+                    <div className="flex flex-col space-y-1">
+                      {info.links.map((link, lIndex) => (
+                        <a 
+                          key={lIndex}
+                          href={link.url}
+                          target={link.url.startsWith('http') ? "_blank" : undefined}
+                          rel={link.url.startsWith('http') ? "noopener noreferrer" : undefined}
+                          className="text-stone-600 text-sm md:text-base hover:text-gold-600 transition-colors w-fit"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-stone-600 text-sm md:text-base whitespace-pre-line">{info.content}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

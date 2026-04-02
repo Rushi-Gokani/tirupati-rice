@@ -5,6 +5,10 @@ import { Factory, Beaker, Megaphone, Trophy } from 'lucide-react';
 import img12 from '../../images/infra-machinery.jpg';
 import img13 from '../../images/infra-logistics.jpg';
 import img14 from '../../images/infra-rice-mill.png';
+import imgExport1 from '../../images/123.jpeg';
+import imgExport2 from '../../images/12345.jpeg';
+import imgExport3 from '../../images/123456.jpeg';
+
 import WorldMap from './WorldMap';
 
 const GlobalReach = () => {
@@ -70,7 +74,7 @@ const GlobalReach = () => {
 
                 {/* Images */}
                 <div className="grid grid-cols-3 md:grid-cols-1 md:w-48 lg:w-56 xl:w-auto xl:grid-cols-3 gap-2 sm:gap-3 mb-8 md:mb-0 xl:mb-12 md:shrink-0">
-                  {[img12, img13, img14].map((img, i) => (
+                  {[img12, img13, img14, imgExport1, imgExport2, imgExport3].map((img, i) => (
                     <motion.div
                       key={i}
                       whileHover={{ scale: 1.05 }}

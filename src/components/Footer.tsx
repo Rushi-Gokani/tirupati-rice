@@ -149,12 +149,17 @@ const Footer = () => {
               <span className="group-hover:text-white transition-colors">Chopri Road, Village Kurak, Karnal,<br />Taraori – 132116, Haryana, India</span>
             </motion.li>
             <motion.li
-              className="flex items-center space-x-3 group"
+              className="flex flex-col space-y-2 group"
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400 }}
             >
-              <Phone size={18} className="text-gold-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span className="group-hover:text-white transition-colors">+1 (555) 123-4567</span>
+              <div className="flex items-center space-x-3">
+                <Phone size={18} className="text-gold-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col">
+                  <a href="tel:+919896342083" className="group-hover:text-white transition-colors">+91 9896342083</a>
+                  <a href="tel:+15551234567" className="group-hover:text-white transition-colors">+1 (555) 123-4567</a>
+                </div>
+              </div>
             </motion.li>
             <motion.li
               className="flex items-center space-x-3 group"
@@ -162,7 +167,7 @@ const Footer = () => {
               transition={{ type: 'spring', stiffness: 400 }}
             >
               <Mail size={18} className="text-gold-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span className="group-hover:text-white transition-colors">info@tirupati-rice.com</span>
+              <a href="mailto:accounts@tirupatibasmatiexports.com" className="group-hover:text-white transition-colors">accounts@tirupatibasmatiexports.com</a>
             </motion.li>
           </ul>
         </motion.div>

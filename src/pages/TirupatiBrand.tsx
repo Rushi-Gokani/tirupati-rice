@@ -9,6 +9,7 @@ import tirupatiPremiumBag from '../../images/tirupati new/6.png';
 import tirupatiRawBag from '../../images/tirupati new/5.png';
 import tirupatiXXXLBag from '../../images/tirupati new/4.png';
 import tirupatiBiryaniBag from '../../images/tirupati new/3.png';
+import rice3 from '../../images/rice1.jpeg';
 
 const tirupatiProducts = [
   {
@@ -75,7 +76,7 @@ const TirupatiBrand = () => {
           initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
         >
           <FadeInImage
-            src="images/rice 3.jpg.jpeg"
+            src={rice3}
             alt="Tirupati Basmati Rice"
             className="w-full h-full object-cover"
             containerClassName="w-full h-full"

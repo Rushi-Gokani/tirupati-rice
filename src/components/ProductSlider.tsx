@@ -6,6 +6,7 @@ import FadeInImage from './ui/FadeInImage';
 
 import tirupatiPremium from '../../images/tirupati new/6.png';
 import lemon1121 from '../../images/tirupati new/4.png';
+import mannatPremium30kg from '../../images/Mannat new/mannat-premium-30kg.png';
 
 const products = [
     {
@@ -32,7 +33,7 @@ const products = [
         id: 3,
         title: "Mannati Rice 1121 30kg (PREMIUM)",
         description: "A breakthrough variety combining traditional aroma with enhanced grain resilience and productivity.",
-        image: "/images/Mannat new/Mannati Rice 1121 30kg (PREMIUM).png",
+        image: mannatPremium30kg,
         brand: "Mannat",
         link: "/products",
         color: "from-stone-700 to-stone-900"

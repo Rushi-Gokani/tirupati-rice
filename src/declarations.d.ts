@@ -10,6 +10,14 @@ declare module '*.jpg' {
     const value: string;
     export default value;
 }
+declare module '*.jpg.jpeg' {
+    const value: string;
+    export default value;
+}
+declare module '*.jpeg' {
+    const value: string;
+    export default value;
+}
 declare module 'react-simple-maps' {
     import React from 'react';
 
